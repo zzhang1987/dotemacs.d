@@ -1,4 +1,5 @@
-(require 'auto-org-md)
+(use-package auto-org-md
+  :ensure t)
 (require 'org)
 (require 'calendar)
 

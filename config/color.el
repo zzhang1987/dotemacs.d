@@ -27,6 +27,7 @@
 (provide 'color)
 
 
-(require 'powerline)
+(use-package powerline
+  :ensure t)
 (load-theme 'material t)
 (setq mode-icons-change-mode-name nil)

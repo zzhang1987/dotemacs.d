@@ -1,8 +1,11 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
+(set-language-environment "UTF-8")
 
 (require 'use-package)
-(require 'req-package)
+(use-package req-package
+  :ensure t)
 (use-package helm-config
+  :ensure helm
   :config
   (helm-mode 1)
   (global-set-key (kbd "M-x") #'helm-M-x)
@@ -10,6 +13,30 @@
   (global-set-key (kbd "C-x C-f") #'helm-find-files)
   )
 
+;; To get path from shell
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+;; Installing company mode
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+;; Disable the delay
+(setq company-idle-delay 0)
+
+(use-package helm-company
+  :ensure t)
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "S-TAB") 'helm-company)
+     (define-key company-active-map (kbd "<backtab>") 'helm-company)
+     (define-key company-mode-map (kbd "C-:") 'helm-company)
+     (define-key company-active-map (kbd "TAB") 'helm-company)
+     (define-key company-active-map (kbd "<tab>") 'helm-company)))
 
 (set-frame-font "Source Code Pro-14")
 
@@ -17,6 +44,7 @@
 ;; Dash board
 ;; Or if you use use-package
 (use-package dashboard
+  :ensure t
   :config
   (dashboard-setup-startup-hook))
 
@@ -26,10 +54,19 @@
                         (bookmarks . 5)
                         (projects . 5)
 			))
+(use-package project-explorer
+  :ensure t)
+(use-package nyan-mode
+  :ensure t
+  :config
+  (nyan-mode))
 
-(nyan-mode)
+(use-package rainbow-identifiers
+  :ensure t
+  :config (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
 
 (use-package helm-projectile
+  :ensure t
   :config
   (helm-projectile-on)
   )
@@ -39,8 +76,11 @@
 
 (electric-pair-mode t) ;;
 
-(use-package pyim)
+(use-package pyim
+  :ensure t)
 (use-package pyim-basedict
+  :ensure t
+  :after pyim
   :init
   (setq default-input-method "pyim")
   :config
@@ -50,10 +90,14 @@
 
 (setq load-prefer-newer t)
 (use-package auto-compile
+  :ensure t
   :init
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode)
   )
+
+(use-package realgud
+  :ensure t)
 
 (global-linum-mode 1)
 (add-to-list 'load-path "~/.emacs.d/personal/config")
@@ -62,7 +106,7 @@
 (load "mkexe.el")
 (load "cppconfig.el")
 (load "latex_config.el")
-(load "languatools.el")
+;(load "languatools.el")
 (load "confirm_exit.el")
 (load "predictive_config.el")
 (load "load_modes.el")
@@ -85,9 +129,15 @@
  ;; If there is more than one, they won't work right.
  )
 (load "color.el")
-(tabbar-mode 'nil)
+(use-package tabbar
+  :ensure tabbar
+  :config
+  (tabbar-mode 'nil)
+  )
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t
+  )
 
 
 (custom-set-variables
@@ -97,4 +147,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (project-explorer zop-to-char zenburn-theme which-key volatile-highlights undo-tree twittering-mode tabbar-ruler sphinx-doc smartrep smartparens smart-mode-line skeletor rtags req-package rainbow-delimiters pyim-wbdict py-autopep8 pdf-tools ox-twbs ov org-caldav operate-on-number ob-ipython nyan-mode mu4e-maildirs-extension move-text moe-theme modern-cpp-font-lock meghanada matlab-mode material-theme magic-latex-buffer lsp-ui lsp-python latex-preview-pane langtool json-mode jedi irony-eldoc imenu-anywhere hl-todo helm-xref helm-projectile helm-notmuch helm-make helm-bibtex guru-mode gscholar-bibtex grizzl grandshell-theme god-mode gitignore-mode gitconfig-mode git-timemachine git-messenger gist ghub+ expand-region elscreen elpy elbank el-get ein editorconfig easy-kill dracula-theme doom-themes dockerfile-mode discover-my-major dired-sidebar dired-explorer diminish diff-hl dashboard cyberpunk-theme cuda-mode csv-mode crux cquery counsel company-lsp company-jedi company-irony-c-headers company-irony cmake-project cmake-mode cmake-ide browse-kill-ring better-shell better-defaults beacon auto-package-update auto-org-md auto-compile auctex-latexmk anzu ample-theme ample-regexps all-the-icons-dired ace-window ac-math))))
+    (pdf-tools gscholar-bibtex ac-math magic-latex-buffer rainbow-mode cmake-mode modern-cpp-font-lock zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens req-package rainbow-delimiters pyim py-autopep8 powerline operate-on-number nyan-mode move-text material-theme markdown-mode magit imenu-anywhere hl-todo helm-projectile guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region elpy el-get ein editorconfig easy-kill discover-my-major diminish diff-hl dashboard crux company-lsp cmake-project browse-kill-ring better-shell better-defaults beacon auto-org-md auto-compile auctex-latexmk anzu ace-window))))

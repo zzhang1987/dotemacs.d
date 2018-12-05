@@ -1,6 +1,11 @@
-(setq cquery-executable "/usr/bin/cquery")
-(add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+(setq cquery-executable "cquery")
+(use-package modern-cpp-font-lock
+  :ensure t
+  :config
+  (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+  )
 (global-set-key (kbd "C-c m") 'recompile)
+
 (with-eval-after-load 'projectile
   (setq projectile-project-root-files-top-down-recurring
         (append '("compile_commands.json"
@@ -23,10 +28,17 @@
   ;; (cquery-use-default-rainbow-sem-highlight)
   )
 
-(require 'lsp-imenu)
-(add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-(use-package company)
+(use-package lsp-mode
+  :ensure t
+  :config
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  )
+(use-package company
+  :ensure t
+  )
 (use-package company-lsp
+  :ensure t
+  :after company
   :init
   (add-hook 'c-mode-hook 'company-mode)
   (add-hook 'c++-mode-hook 'company-mode) 
@@ -40,22 +52,19 @@
   :init
   (add-hook 'c-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'python-mode-hook 'rainbow-delimiters-mode)
   )
 
 (use-package magit
   :ensure t)
 
 (req-package flycheck
+  :ensure t
   :config
   (progn
     (global-flycheck-mode)))
 
 
-(req-package projectile
-  :config
-  (progn
-    (projectile-global-mode)
-    ))
 
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
@@ -63,6 +72,7 @@
 
 
 (use-package cmake-project
+  :ensure t
   :config
   (defun maybe-cmake-project-hook ()
     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
