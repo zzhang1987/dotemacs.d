@@ -1,0 +1,3 @@
+[submodule "site-lisp/predictive"]
+	path = site-lisp/predictive
+	url = https://github.com/dmgerman/predictive
