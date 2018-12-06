@@ -6,4 +6,7 @@
     (comment-or-uncomment-region (line-beginning-position) (line-end-position))
     )
   )
-(global-set-key (kbd "C-;") 'comment-or-uncomment-line-or-region)
+(global-set-key (kbd "C-c ;") 'comment-or-uncomment-line-or-region)
+
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <left>") 'windmove-left)

@@ -1,3 +1,4 @@
+
 ;;;; This snippet enables lua-mode
 ;; This line is not necessary, if lua-mode.el is already on your load-path
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
@@ -13,3 +14,8 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+(use-package vimish-fold
+  :ensure t
+  :config
+  (vimish-fold-global-mode 1))

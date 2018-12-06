@@ -26,7 +26,9 @@
 ;;                "jupyter")
 ;;   )
 (defun my/python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
+  (add-to-list 'company-backends 'company-jedi)
+  (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+  )
 (use-package py-autopep8
   :ensure t
   :config

@@ -1,6 +1,17 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
 (set-language-environment "UTF-8")
+;; load emacs 24's package system. Add MELPA repository.
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+   '("melpa" . "http://melpa.milkbox.net/packages/")
+   t))
+(package-initialize)
 
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 (require 'use-package)
 (use-package req-package
   :ensure t)
@@ -98,6 +109,9 @@
 
 (use-package realgud
   :ensure t)
+(use-package powerline
+  :ensure t
+  :config (powerline-default-theme))
 
 (global-linum-mode 1)
 (add-to-list 'load-path "~/.emacs.d/personal/config")
@@ -147,4 +161,5 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pdf-tools gscholar-bibtex ac-math magic-latex-buffer rainbow-mode cmake-mode modern-cpp-font-lock zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens req-package rainbow-delimiters pyim py-autopep8 powerline operate-on-number nyan-mode move-text material-theme markdown-mode magit imenu-anywhere hl-todo helm-projectile guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region elpy el-get ein editorconfig easy-kill discover-my-major diminish diff-hl dashboard crux company-lsp cmake-project browse-kill-ring better-shell better-defaults beacon auto-org-md auto-compile auctex-latexmk anzu ace-window))))
+    (vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
+(load "mykeybindings.el") 
