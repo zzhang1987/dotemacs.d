@@ -36,4 +36,7 @@
   :ensure t
   )
 (use-package material-theme
-  :ensure t)
+  :ensure t
+  :config (load-theme 'material t))
+
+(setq mode-icons-change-mode-name nil)
