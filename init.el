@@ -21,19 +21,19 @@
   :ensure t)
 
 (setq load-prefer-newer t)
+(xterm-mouse-mode 1)
 
+(global-linum-mode 1)
+(global-auto-revert-mode)
 (use-package realgud
   :ensure t)
-(global-linum-mode 1)
 (add-to-list 'load-path "~/.emacs.d/config")
 (load "myhelm_config.el")
 (load "appearance.el")
 (load "basic_prog.el")
-;(load "package_config.el")
 (load "mkexe.el")
 (load "cppconfig.el")
 (load "latex_config.el")
-;(load "languatools.el")
 (load "confirm_exit.el")
 (load "predictive_config.el")
 (load "load_modes.el")
