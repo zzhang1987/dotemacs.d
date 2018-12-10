@@ -55,8 +55,6 @@
   (add-hook 'python-mode-hook 'rainbow-delimiters-mode)
   )
 
-(use-package magit
-  :ensure t)
 
 (req-package flycheck
   :ensure t

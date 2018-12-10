@@ -1,4 +1,3 @@
-
 (use-package better-defaults)
 (use-package better-shell
   :ensure t
@@ -37,3 +36,12 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
 
 (electric-pair-mode t) ;;
+
+
+
+(use-package magit
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c C-c c") 'magit-commit-create)
+  (global-set-key (kbd "C-c C-c p") 'magit-push-popup)
+  (global-set-key (kbd "C-c C-c l") 'magit-pull-popup))
