@@ -1,6 +1,7 @@
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi)
   (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+  (define-key python-mode-map (kbd "<f5>") 'realgud:pdb)
   )
 (use-package py-autopep8
   :ensure t

@@ -62,8 +62,12 @@
   (progn
     (global-flycheck-mode)))
 
-
-
+(defun my/c-mode-hook ()
+  (define-key c-mode-base-map "<f5>" 'realgud:gdb)
+  (define-key c-mode-base-map "<f7>" 'compile)
+)
+(add-hook 'c-mode-hook 'my/c-mode-hook)
+(add-hook 'c++-mode-hook 'my/c-mode-hook)
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.cuh\\'" . c++-mode))
