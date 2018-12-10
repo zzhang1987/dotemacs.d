@@ -21,12 +21,12 @@ Now enjoy it!
 ## Python
 Using company-jedi for auto-complete.
 
-1. "<f5>" for debugging with realgud:pdb
+1. "f5" for debugging with realgud:pdb
 
 
 ## C++
 Using cquery for auto-complete.
 
-1. "<f5>" for debugging with realgud:gdb
-2. "<f7>" for compile
+1. "f5" for debugging with realgud:gdb
+2. "f7" for compile
 3. "C-c C-r" for recompile
