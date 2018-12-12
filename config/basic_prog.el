@@ -1,9 +1,10 @@
-
 (use-package better-defaults)
 (use-package better-shell
   :ensure t
   :bind (("C-'" . better-shell-shell)
          ("C-;" . better-shell-remote-open)))
+(use-package cmake-mode
+  :ensure t)
 (use-package auto-compile
   :ensure t
   :init
@@ -37,3 +38,18 @@
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
 
 (electric-pair-mode t) ;;
+
+
+
+(use-package magit
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c C-x c") 'magit-commit-create)
+  (global-set-key (kbd "C-c C-x p") 'magit-push-popup)
+  (global-set-key (kbd "C-c C-x l") 'magit-pull-popup))
+
+
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/snippets")
+(yas-global-mode 1)
