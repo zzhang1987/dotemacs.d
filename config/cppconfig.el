@@ -1,4 +1,4 @@
-(setq cquery-executable "cquery")
+(setq cquery-executable "/usr/bin/cquery")
 (use-package modern-cpp-font-lock
   :ensure t
   :config

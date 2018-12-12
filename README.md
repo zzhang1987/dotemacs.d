@@ -15,9 +15,9 @@ Now enjoy it!
 
 ## magit
 
-1. "C-c C-c c" for creating commits
-2. "C-c C-c p" for push
-3. "C-c C-c l" for pull
+1. "C-c C-x c" for creating commits
+2. "C-c C-x p" for push
+3. "C-c C-x l" for pull
 ## Python
 Using company-jedi for auto-complete.
 
