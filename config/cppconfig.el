@@ -28,25 +28,7 @@
   ;; (cquery-use-default-rainbow-sem-highlight)
   )
 
-(use-package lsp-mode
-  :ensure t
-  :config
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-  )
-(use-package company
-  :ensure t
-  )
-(use-package company-lsp
-  :ensure t
-  :after company
-  :init
-  (add-hook 'c-mode-hook 'company-mode)
-  (add-hook 'c++-mode-hook 'company-mode) 
-  (add-hook 'c++-mode-hook 'yas-minor-mode) 
-  (add-hook 'c-mode-hook 'yas-minor-mode)
-  :config
-  (push 'company-lsp company-backends)
-  )
+
 (use-package rainbow-delimiters
   :ensure t
   :init
@@ -54,7 +36,10 @@
   (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'python-mode-hook 'rainbow-delimiters-mode)
   )
-
+(add-hook 'c-mode-hook 'company-mode)
+(add-hook 'c++-mode-hook 'company-mode) 
+(add-hook 'c++-mode-hook 'yas-minor-mode) 
+(add-hook 'c-mode-hook 'yas-minor-mode)
 
 (req-package flycheck
   :ensure t

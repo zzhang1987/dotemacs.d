@@ -5,6 +5,8 @@
          ("C-;" . better-shell-remote-open)))
 (use-package cmake-mode
   :ensure t)
+(use-package find-file-in-project
+  :ensure t)
 (use-package auto-compile
   :ensure t
   :init
@@ -53,3 +55,36 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
 (yas-global-mode 1)
+
+
+(use-package lsp-mode
+  :ensure t)
+(use-package lsp-ui
+  :ensure t
+  :config
+  (setq lsp-ui-doc-max-height 20
+	lsp-ui-doc-max-width 50
+	lsp-ui-sideline-ignore-duplicate t
+	lsp-ui-peek-always-show t))
+  
+(use-package company
+  :ensure t
+  :config
+  (setq company-minimum-prefix-length 1
+	company-idle-delay 0
+	company-tooltip-limit 10
+	company-transformers nil
+	company-show-numbers t
+	)
+  (global-company-mode +1))
+
+(use-package company-lsp
+  :ensure t
+  :commands (company-lsp)
+  )
+
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode))
+
+

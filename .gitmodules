@@ -1,3 +1,6 @@
 [submodule "site-lisp/predictive"]
 	path = site-lisp/predictive
 	url = https://github.com/dmgerman/predictive
+[submodule "site-lisp/ms-python"]
+	path = site-lisp/ms-python
+	url = https://github.com/xhcoding/ms-python
