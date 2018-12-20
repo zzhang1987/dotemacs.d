@@ -1,4 +1,5 @@
-(use-package better-defaults)
+(use-package better-defaults
+  :ensure t)
 (use-package better-shell
   :ensure t
   :bind (("C-'" . better-shell-shell)
@@ -36,7 +37,7 @@
 
 (use-package project-explorer
   :ensure t)
-(server-start)
+;; (server-start)
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
 
 (electric-pair-mode t) ;;
@@ -58,7 +59,10 @@
 
 
 (use-package lsp-mode
-  :ensure t)
+  :ensure t
+  :config
+  (require 'lsp-clients)
+  (add-hook 'python-mode-hook 'lsp))
 (use-package lsp-ui
   :ensure t
   :config

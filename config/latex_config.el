@@ -110,25 +110,7 @@
     )
   (use-package gscholar-bibtex
     :ensure t)
-  (use-package pdf-tools
-    :ensure t
-    :commands (pdf-tools-install)
-    :config
-    (pdf-tools-install)
-    (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
-    ;; Use pdf-tools to open PDF files
-    ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-    ;;       TeX-source-correlate-start-server t)
 
-    ;; Update PDF buffers after successful LaTeX runs
-    (add-hook 'TeX-after-compilation-finished-functions
-              #'TeX-revert-document-buffer)
-
-    )
-  ;; to use pdfview with auctex
-  (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-        TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
-        TeX-source-correlate-start-server t) ;; not sure if last line is neccessary
   )
 
 ;; (load "auctex.el" t)  ; The second arg to load is a flag to suppress errors
