@@ -51,14 +51,19 @@
   (global-set-key (kbd "C-c C-x l") 'magit-pull-popup))
 
 
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets")
-(yas-global-mode 1)
-
+(use-package yasnippet
+  :ensure t
+  :config 
+  (yas/initialize)
+  (yas/load-directory "~/.emacs.d/snippets")
+  (yas-global-mode 1)
+)
 
 (use-package lsp-mode
-  :ensure t)
+  :ensure t
+  :config
+  (require 'lsp-clients)
+  (add-hook 'python-mode-hook 'lsp))
 (use-package lsp-ui
   :ensure t
   :config
