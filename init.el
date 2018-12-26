@@ -2,6 +2,8 @@
 ;; language settings
 (set-language-environment "UTF-8")
 (set-frame-font "Source Code Pro-14")
+(setq default-frame-alist '((font . "Source Code Pro-14")))
+
 
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
