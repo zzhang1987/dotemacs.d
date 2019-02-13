@@ -58,13 +58,22 @@
   (yas/initialize)
   (yas/load-directory "~/.emacs.d/snippets")
   (yas-global-mode 1)
-)
+  )
+
 
 (use-package lsp-mode
   :ensure t
   :config
+  (setq lsp-python-ms-dir
+        (expand-file-name "~/source/python-language-server/output/bin/Release/"))
+  (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
+  ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
-  (add-hook 'python-mode-hook 'lsp))
+  (add-hook 'python-mode-hook #'lsp)
+  )
+
+
+
 (use-package lsp-ui
   :ensure t
   :config
@@ -94,3 +103,9 @@
   :hook (company-mode . company-box-mode))
 
 
+(use-package neotree
+  :ensure t
+  :config
+  (global-set-key [f8] 'neotree-toggle)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  )

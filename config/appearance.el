@@ -7,9 +7,12 @@
   :config
   (nyan-mode))
 
-(use-package rainbow-identifiers
-  :ensure t
-  :config (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
+(if (eq system-type 'gnu/linux)
+    (use-package rainbow-identifiers
+      :ensure t
+      :config (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
+    )
+
 
 
 ;; Dash board
@@ -18,6 +21,8 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook))
+
+;(message system-type)
 
 
 (setq dashboard-items '((recents  . 15)
@@ -37,6 +42,21 @@
   )
 (use-package material-theme
   :ensure t
-  :config (load-theme 'material t))
+  :config (load-theme 'tango-dark t))
 
 (setq mode-icons-change-mode-name nil)
+
+
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (load-theme 'oceanic t)
+                  (set-frame-font "Fira Code-14")
+                  )
+                )             
+              )
+  (load-theme 'oceanic t)
+  (set-frame-font "Fira Code-14")
+  )

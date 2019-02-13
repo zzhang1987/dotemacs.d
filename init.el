@@ -20,6 +20,17 @@
 (use-package req-package
   :ensure t)
 
+(when (eq system-type 'windows-nt)
+  (setq gc-cons-threshold (* 512 1024 1024))
+  (setq gc-cons-percentage 0.5)
+  (setq inhibit-compacting-font-caches t)
+  (setq w32-get-true-file-attributes nil)
+  (run-with-idle-timer 5 t #'garbage-collect)
+  ;; 显示垃圾回收信息，这个可以作为调试用
+  ;; (setq garbage-collection-messages t)
+  )
+
+
 (setq load-prefer-newer t)
 (xterm-mouse-mode 1)
 
@@ -28,7 +39,8 @@
 (use-package realgud
   :ensure t)
 (add-to-list 'load-path "~/.emacs.d/config")
-(load "myhelm_config.el")
+;; (load "myhelm_config.el")
+(load "myivy_config.el")
 (load "appearance.el")
 (load "basic_prog.el")
 (load "mkexe.el")
@@ -52,7 +64,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-mode auto-package-update yasnippet-snippets python-docstring vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
+    (all-the-icons-ivy helm-themes helm-swoop lsp-mode auto-package-update yasnippet-snippets python-docstring vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
 (load "mykeybindings.el") 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

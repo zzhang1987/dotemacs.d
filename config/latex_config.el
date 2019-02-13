@@ -51,8 +51,7 @@
   :config
   (use-package magic-latex-buffer
     :ensure t)
-  (use-package ac-math
-    :ensure t)
+
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
@@ -60,15 +59,7 @@
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   ;;(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
   (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
-  (add-hook 'LaTex-mode-hook 'ac-latex-mode-setup)
-  (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
-  (add-to-list 'ac-modes 'LaTeX-mode)   ; make auto-complete aware of `latex-mode
 
-  (defun ac-latex-mode-setup ()         ; add ac-sources to default ac-sources
-    (setq ac-sources
-          (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-                  ac-sources))
-    )
   (defun TeX-toggle-escape nil (interactive)
   "Toggle Shell Escape"
   (setq LaTeX-command
@@ -113,19 +104,6 @@
 
   )
 
-;; (load "auctex.el" t)  ; The second arg to load is a flag to suppress errors
-;; (load "preview-latex.el" nil t t)
-;; (require 'magic-latex-buffer)
-;; (require 'ac-math)
-
-
-
-
-
-
-;; (require 'auctex-latexmk)
-;; (auctex-latexmk-setup) 
-;;(Require 'auto-complete-auctex)
 
 
 
