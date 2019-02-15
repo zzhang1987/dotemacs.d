@@ -1,7 +1,8 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
 ;; language settings
 (set-language-environment "UTF-8")
-(set-frame-font "Source Code Pro-14")
+(set-default-coding-systems 'utf-8)
+(set-frame-font "Fira Code-14")
 
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
@@ -55,6 +56,7 @@
 (load "pyim_config.el")
 (load "java_config.el")
 
+(global-set-key (kbd "C-s") 'swiper)
 
 
 (custom-set-variables
