@@ -1,6 +1,7 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
 ;; language settings
 (set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 (set-frame-font "Fira Code-14")
 (setq default-frame-alist '((font . "Fira Code-14")))
 
@@ -22,6 +23,17 @@
 (use-package req-package
   :ensure t)
 
+(when (eq system-type 'windows-nt)
+  (setq gc-cons-threshold (* 512 1024 1024))
+  (setq gc-cons-percentage 0.5)
+  (setq inhibit-compacting-font-caches t)
+  (setq w32-get-true-file-attributes nil)
+  (run-with-idle-timer 5 t #'garbage-collect)
+  ;; 显示垃圾回收信息，这个可以作为调试用
+  ;; (setq garbage-collection-messages t)
+  )
+
+
 (setq load-prefer-newer t)
 (xterm-mouse-mode 1)
 
@@ -30,7 +42,8 @@
 (use-package realgud
   :ensure t)
 (add-to-list 'load-path "~/.emacs.d/config")
-(load "myhelm_config.el")
+;; (load "myhelm_config.el")
+(load "myivy_config.el")
 (load "appearance.el")
 (load "basic_prog.el")
 (load "mkexe.el")
@@ -44,7 +57,9 @@
 (load "pyconfig.el")
 (load "pyim_config.el")
 (load "java_config.el")
-(load "mykeybindings.el") 
+
+(global-set-key (kbd "C-s") 'swiper)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -62,29 +77,8 @@
  '(hl-sexp-background-color "#121212")
  '(package-selected-packages
    (quote
-    (oceanic-theme yasnippet-snippets vimish-fold tabbar req-package realgud rainbow-identifiers rainbow-delimiters python-docstring pyim py-yapf py-autopep8 project-explorer powerline pdf-tools org-wild-notifier org-alert nyan-mode modern-cpp-font-lock meghanada material-theme magit magic-latex-buffer lsp-ui lsp-python helm-projectile helm-company gscholar-bibtex fvwm-mode find-file-in-project exec-path-from-shell el-get ein dashboard company-lsp company-jedi company-box color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-project cmake-mode better-shell better-defaults auto-org-md auto-compile auctex-latexmk ample-theme all-the-icons ac-math)))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f36c60")
-     (40 . "#ff9800")
-     (60 . "#fff59d")
-     (80 . "#8bc34a")
-     (100 . "#81d4fa")
-     (120 . "#4dd0e1")
-     (140 . "#b39ddb")
-     (160 . "#f36c60")
-     (180 . "#ff9800")
-     (200 . "#fff59d")
-     (220 . "#8bc34a")
-     (240 . "#81d4fa")
-     (260 . "#4dd0e1")
-     (280 . "#b39ddb")
-     (300 . "#f36c60")
-     (320 . "#ff9800")
-     (340 . "#fff59d")
-     (360 . "#8bc34a"))))
- '(vc-annotate-very-old-color nil))
+    (all-the-icons-ivy helm-themes helm-swoop lsp-mode auto-package-update yasnippet-snippets python-docstring vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
+(load "mykeybindings.el") 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

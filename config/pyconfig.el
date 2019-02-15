@@ -4,11 +4,7 @@
   (define-key python-mode-map (kbd "C-c <f5>") 'realgud:pdb)
   (add-hook 'python-mode-hook 'flycheck-mode)
   )
-;; (use-package py-autopep8
-;;   :ensure t
-;;   :config
-;;   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-;;   (setq py-autopep8-options '("--ignore E402")))
+
 
 (use-package py-yapf
   :ensure t
@@ -18,7 +14,6 @@
 ;; (require 'ms-python)
 
 ;; (add-hook 'python-mode-hook #'lsp)
-
 
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
