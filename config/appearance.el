@@ -45,6 +45,8 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'oceanic t))))
+                  (load-theme 'oceanic t))
+                (with-selected-frame frame
+                  (set-frame-font "Fira Code-14"))))
   (load-theme 'oceanic t)
   )
