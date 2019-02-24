@@ -94,3 +94,14 @@
   :hook (company-mode . company-box-mode))
 
 
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown"))
+
+(use-package markdown-preview-mode
+  :ensure t
+  :config
+  (add-to-list 'markdown-preview-javascript "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))

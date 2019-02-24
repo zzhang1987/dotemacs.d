@@ -1,8 +1,8 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
 ;; language settings
 (set-language-environment "UTF-8")
-(set-frame-font "Source Code Pro-14")
-
+(set-frame-font "Fira Code-14")
+(setq default-frame-alist '((font . "Fira Code-14")))
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -52,7 +52,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lsp-mode auto-package-update yasnippet-snippets python-docstring vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
+    (markdown-preview-mode lsp-mode auto-package-update yasnippet-snippets python-docstring vimish-fold use-package exec-path-from-shell zop-to-char zenburn-theme which-key volatile-highlights undo-tree super-save smartrep smartparens operate-on-number move-text magit projectile imenu-anywhere hl-todo guru-mode gitignore-mode gitconfig-mode git-timemachine gist flycheck expand-region epl editorconfig easy-kill diminish diff-hl discover-my-major crux browse-kill-ring beacon anzu ace-window))))
 (load "mykeybindings.el") 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

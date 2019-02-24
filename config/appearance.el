@@ -35,8 +35,15 @@
 (use-package all-the-icons
   :ensure t
   )
-(use-package material-theme
-  :ensure t
-  :config (load-theme 'material t))
+
+
+
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+        (lambda (frame)
+            (with-selected-frame frame
+                (load-theme 'deeper-blue t))))
+    (load-theme 'deeper-blue t))
 
 (setq mode-icons-change-mode-name nil)
