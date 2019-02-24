@@ -1,7 +1,13 @@
 (use-package auto-org-md
   :ensure t)
 (require 'org)
-(require 'calendar)
+(use-package calendar
+  :ensure t)
+
+(use-package org-wild-notifier
+  :ensure t
+  :config
+  (org-wild-notifier-mode))
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
