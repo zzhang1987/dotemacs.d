@@ -59,7 +59,7 @@
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   ;;(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
   (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
-
+  
   (defun TeX-toggle-escape nil (interactive)
   "Toggle Shell Escape"
   (setq LaTeX-command
@@ -97,7 +97,8 @@
   (use-package auctex-latexmk
     :ensure t
     :config
-    (auctex-latexmk-setup) 
+    (auctex-latexmk-setup)
+    (setq auctex-latexmk-inherit-TeX-PDF-mode t)
     )
   (use-package gscholar-bibtex
     :ensure t)
