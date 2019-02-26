@@ -68,9 +68,9 @@
         (setq lsp-python-ms-dir
               (expand-file-name "~/source/python-language-server/output/bin/Release/"))
         (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
+        (add-hook 'python-mode-hook #'lsp)
         )
   ;; (setq lsp-python-ms-dotnet "dotnet")
-  (add-hook 'python-mode-hook #'lsp)
   (require 'lsp-clients)
   )
 
