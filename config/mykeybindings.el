@@ -10,3 +10,4 @@
 
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-s") 'swiper)

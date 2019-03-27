@@ -4,10 +4,10 @@
 (use-package calendar
   :ensure t)
 
-(use-package org-wild-notifier
-  :ensure t
-  :config
-  (org-wild-notifier-mode))
+;; (use-package org-wild-notifier
+;;   :ensure t
+;;   :config
+;;   (org-wild-notifier-mode))
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -20,12 +20,12 @@
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 
 
-(setq org-agenda-files (list "~/org/work.org"
+ (setq org-agenda-files (list "~/org/work.org"
                              "~/org/school.org" 
                              "~/org/home.org"))
 
-(setq org-agenda-include-diary t)
-(setq calendar-mark-holidays-flag t)
+ (setq org-agenda-include-diary t)
+ (setq calendar-mark-holidays-flag t)
 
 
 
