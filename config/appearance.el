@@ -44,18 +44,18 @@
 
 (setq mode-icons-change-mode-name nil)
 
-(use-package nova-theme
+(use-package arc-dark-theme
   :ensure t)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'nova t)
+                  (load-theme 'arc-dark t)
                   (set-frame-font "Fira Code-14")
                   )
                 )             
               )
-  (load-theme 'oceanic t)
+  (load-theme 'arc-dark t)
   (set-frame-font "Fira Code-14")
   )
