@@ -64,14 +64,9 @@
 (use-package lsp-mode
   :ensure t
   :config
-  (when (eq system-type 'windows-nt)
-        (setq lsp-python-ms-dir
-              (expand-file-name "~/source/python-language-server/output/bin/Release/"))
-        (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
-        (add-hook 'python-mode-hook #'lsp)
-        )
   ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
+  (add-hook 'python-mode-hook 'lsp)
   )
 
 
@@ -97,7 +92,6 @@
 
 (use-package company-lsp
   :ensure t
-  :commands (company-lsp)
   )
 
 (use-package company-box
