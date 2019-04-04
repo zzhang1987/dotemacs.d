@@ -24,7 +24,8 @@
 
 (use-package helm-company
   :ensure t)
-
+(use-package projectile
+  :ensure t)
 (eval-after-load 'company
   '(progn
      (define-key company-active-map (kbd "S-TAB") 'helm-company)
@@ -48,8 +49,8 @@
   :ensure t
   :config
   (global-set-key (kbd "C-c C-x c") 'magit-commit-create)
-  (global-set-key (kbd "C-c C-x p") 'magit-push-popup)
-  (global-set-key (kbd "C-c C-x l") 'magit-pull-popup))
+  (global-set-key (kbd "C-c C-x p") 'magit-push)
+  (global-set-key (kbd "C-c C-x l") 'magit-pull))
 
 
 (use-package yasnippet
@@ -64,6 +65,9 @@
 (use-package lsp-mode
   :ensure t
   :config
+  ;; (setq lsp-python-ms-dir
+  ;;       (expand-file-name "~/source/python-language-server/output/bin/Release/"))
+  ;; (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
   ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
   (add-hook 'python-mode-hook 'lsp)
@@ -92,6 +96,7 @@
 
 (use-package company-lsp
   :ensure t
+  :commands (company-lsp)
   )
 
 (use-package company-box
