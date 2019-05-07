@@ -1,41 +1,49 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
-;; language settings
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
-(set-frame-font "Fira Code-14")
-(setq default-frame-alist '((font . "Fira Code-14")))
 
 
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
   (require 'package)
-  (add-to-list
-   'package-archives
-   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-   '("melpa" . "http://melpa.milkbox.net/packages/")
-   t))
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
+  (setq package-enable-at-startup nil)
+
+  
+  (unless (assoc-default "melpa" package-archives)
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+  (unless (assoc-default "org" package-archives)
+    (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
+  (unless (assoc-default "marmalade" package-archives)
+    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (when (not package-archive-contents)
+    (package-refresh-contents))
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+  )
+
 (require 'use-package)
 (use-package req-package
   :ensure t)
 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;      setup coding system 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (setq default-buffer-file-coding-system 'utf-8-unix)
+(prefer-coding-system 'utf-8)
+(setenv "LANG" "en_US.UTF-8")
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
 
 
-
+;; modes
 (setq load-prefer-newer t)
 (xterm-mouse-mode 1)
-
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 (global-auto-revert-mode)
-(use-package realgud
-  :ensure t)
+(global-hl-line-mode t)
+(display-battery-mode 1)
+
 (add-to-list 'load-path "~/.emacs.d/config")
-;; (load "myhelm_config.el")
+(load "hist_related.el")
 (load "myivy_config.el")
 (load "appearance.el")
 (load "basic_prog.el")
@@ -92,7 +100,7 @@
  '(hl-sexp-background-color "#121212")
  '(package-selected-packages
    (quote
-    (arc-dark-theme afternoon-theme nova-theme lsp-mode org-wild-notifier vimish-fold tabbar req-package realgud rainbow-identifiers rainbow-delimiters py-yapf py-autopep8 project-explorer powerline pdf-tools oceanic-theme nyan-mode neotree modern-cpp-font-lock meghanada material-theme magit magic-latex-buffer lsp-ui ivy-bibtex helm-themes helm-swoop helm-projectile helm-company gscholar-bibtex ghub find-file-in-project el-get dashboard counsel company-lsp company-jedi company-box cmake-project cmake-mode better-shell better-defaults auto-package-update auto-org-md auto-compile auctex-latexmk all-the-icons-ivy ac-math))))
+    (haskell-mode arc-dark-theme afternoon-theme nova-theme lsp-mode org-wild-notifier vimish-fold tabbar req-package realgud rainbow-identifiers rainbow-delimiters py-yapf py-autopep8 project-explorer powerline pdf-tools oceanic-theme nyan-mode neotree modern-cpp-font-lock meghanada material-theme magit magic-latex-buffer lsp-ui ivy-bibtex helm-themes helm-swoop helm-projectile helm-company gscholar-bibtex ghub find-file-in-project el-get dashboard counsel company-lsp company-jedi company-box cmake-project cmake-mode better-shell better-defaults auto-package-update auto-org-md auto-compile auctex-latexmk all-the-icons-ivy ac-math))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
