@@ -44,7 +44,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/config")
 (load "hist_related.el")
-(load "myivy_config.el")
+;; (load "myivy_config.el")
+(load "myhelm_config.el")
 (load "appearance.el")
 (load "basic_prog.el")
 (load "mkexe.el")
