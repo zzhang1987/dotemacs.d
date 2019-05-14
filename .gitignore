@@ -10,3 +10,12 @@ eclipse.jdt.ls
 .cache
 srecode-map.el
 url
+\%*
+.savehist
+ac-comphist.dat
+pkg
+project-explorer-cache
+projectile-bookmarks.eld
+request
+tramp
+transient
