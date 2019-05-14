@@ -1,0 +1,12 @@
+\#*
+workspace
+recentf
+elpa
+eclipse.jdt.ls
+*.orig
+.lsp-session
+.lsp-session-v1
+.dap-breakpoints
+.cache
+srecode-map.el
+url
