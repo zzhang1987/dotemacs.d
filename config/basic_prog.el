@@ -1,3 +1,7 @@
+
+(use-package realgud
+  :ensure t)
+
 (use-package better-defaults
   :ensure t)
 (use-package better-shell
@@ -26,6 +30,8 @@
   :ensure t)
 (use-package projectile
   :ensure t)
+(use-package haskell-mode
+  :ensure t)
 (eval-after-load 'company
   '(progn
      (define-key company-active-map (kbd "S-TAB") 'helm-company)
@@ -51,7 +57,11 @@
   (global-set-key (kbd "C-c C-x c") 'magit-commit-create)
   (global-set-key (kbd "C-c C-x p") 'magit-push)
   (global-set-key (kbd "C-c C-x l") 'magit-pull))
-
+(use-package git-gutter+
+  :ensure t
+  :config
+  (progn
+    (global-git-gutter+-mode)))
 
 (use-package yasnippet
   :ensure t
@@ -71,6 +81,11 @@
   ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
   (add-hook 'python-mode-hook 'lsp)
+  (add-hook 'sh-mode-hook #'lsp-sh-enable)
+  (use-package lsp-java
+    :ensure t
+    :after lsp
+    :config (add-hook 'java-mode-hook 'lsp))
   )
 
 
@@ -112,3 +127,23 @@
   )
 
 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;      Fixme-mode
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/pkg/vendors"))
+(require 'fixme-mode)
+(defvar my-highlight-words
+  '("FIXME" "TODO" "BUG"))
+;; Ensure that the variable exists.
+(defvar wcheck-language-data nil)
+(push '("FIXME"
+        (program . (lambda (strings)
+                     (let (found)
+                       (dolist (word my-highlight-words found)
+                         (when (member word strings)
+                           (push word found))))))
+        (face . highlight)
+        (read-or-skip-faces
+         (nil)))
+      wcheck-language-data)
+(fixme-mode 1)

@@ -3,6 +3,8 @@
   ;; (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
   (define-key python-mode-map (kbd "C-c <f5>") 'realgud:pdb)
   (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'python-mode-hook 'hs-minor-mode)
+  (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
 
@@ -18,3 +20,7 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
 (add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook (lambda ()
+                              (python-docstring-mode 1)))
+
+(use-package dap-python :after (lsp-java))

@@ -12,6 +12,16 @@
       :ensure t
       :config (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
     )
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;      Show line number of current coding window
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(use-package linum
+  :init
+  (progn
+    (global-display-line-numbers-mode nil)
+    (setq display-line-numbers "%4d \u2502")
+    ))
+
 
 
 
@@ -52,10 +62,24 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'arc-dark t)
-                  (set-frame-font "Fira Code-14")
+                  (set-frame-font "Monaco-14")
                   )
                 )             
               )
   (load-theme 'arc-dark t)
-  (set-frame-font "Fira Code-14")
+  (set-frame-font "Monaco-14")
+  )
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package neotree
+  :ensure t
+  :config (progn
+    (setq neo-smart-open t)
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+    (setq neo-window-fixed-size nil)
+    (setq-default neo-show-hidden-files t)
+    (global-set-key [f2] 'neotree-refresh)
+    (global-set-key [f8] 'neotree-toggle))
   )
