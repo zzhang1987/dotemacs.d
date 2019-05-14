@@ -1,4 +1,3 @@
-
 (use-package realgud
   :ensure t)
 
@@ -147,3 +146,10 @@
          (nil)))
       wcheck-language-data)
 (fixme-mode 1)
+
+
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'fci-mode)
+  )
