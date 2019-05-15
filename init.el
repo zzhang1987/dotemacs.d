@@ -24,6 +24,8 @@
 (use-package req-package
   :ensure t)
 
+(add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      setup coding system 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

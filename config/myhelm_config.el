@@ -12,6 +12,12 @@
   :ensure t
   :config
   (helm-projectile-on)
+  
+  (use-package swiper-helm
+    :ensure t
+    :config
+    (global-set-key (kbd "C-s") 'swiper-helm)
+    )
   )
 
 (use-package helm-bibtex
@@ -25,9 +31,3 @@
   (setq bibtex-completion-pdf-field "File")
   )
 
-(use-package swiper-helm
-  :ensure t
-  :after helm
-  :config
-  (global-set-key (kbd "C-s") 'swiper-helm)
-)

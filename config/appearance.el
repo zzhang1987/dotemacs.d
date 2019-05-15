@@ -54,19 +54,19 @@
 
 (setq mode-icons-change-mode-name nil)
 
-(use-package arc-dark-theme
+(use-package afternoon-theme
   :ensure t)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'arc-dark t)
+                  (load-theme 'afternoon t)
                   (set-frame-font "Monaco-14")
                   )
                 )             
               )
-  (load-theme 'arc-dark t)
+  (load-theme 'afternoon t)
   (set-frame-font "Monaco-14")
   )
 
