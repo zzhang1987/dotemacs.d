@@ -102,7 +102,20 @@
     )
   (use-package gscholar-bibtex
     :ensure t)
+  (use-package pdf-tools
+    :ensure t
+    :config 
 
+    ;; Use pdf-tools to open PDF files
+    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+          TeX-source-correlate-start-server t)
+
+    ;; Update PDF buffers after successful LaTeX runs
+    (add-hook 'TeX-after-compilation-finished-functions
+              #'TeX-revert-document-buffer)
+    (add-hook 'LaTeX-mode-hook 'pdf-tools-install))
+ 
+  
   )
 
 
