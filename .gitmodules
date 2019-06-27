@@ -4,3 +4,6 @@
 [submodule "site-lisp/ms-python"]
 	path = site-lisp/ms-python
 	url = https://github.com/xhcoding/ms-python
+[submodule "site-lisp/awesome-tab"]
+	path = site-lisp/awesome-tab
+	url = https://github.com/manateelazycat/awesome-tab
