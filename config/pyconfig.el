@@ -4,9 +4,13 @@
   (define-key python-mode-map (kbd "C-c <f5>") 'realgud:pdb)
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'hs-minor-mode)
-  (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
+(use-package python-docstring
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'python-docstring-mode)
+  )
 
 (use-package pyvenv
   :ensure t

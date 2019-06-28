@@ -24,7 +24,6 @@
 (use-package req-package
   :ensure t)
 
-(add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      setup coding system 
@@ -45,6 +44,7 @@
 (display-battery-mode 1)
 
 (add-to-list 'load-path "~/.emacs.d/config")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (load "hist_related.el")
 ;; (load "myivy_config.el")
 (load "myhelm_config.el")
