@@ -73,6 +73,7 @@
 
 (use-package lsp-mode
   :ensure t
+  :after pyvenv 
   :config
   ;; (setq lsp-python-ms-dir
   ;;       (expand-file-name "~/source/python-language-server/output/bin/Release/"))

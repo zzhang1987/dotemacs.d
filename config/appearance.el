@@ -41,32 +41,39 @@
                         (projects . 5)
 			))
 
-(use-package tabbar
-  :ensure tabbar
-  :config
-  (tabbar-mode 'nil)
-  )
+;; (use-package tabbar
+;;   :ensure tabbar
+;;   :config
+;;   (tabbar-mode 'nil)
+;;   )
+
+(use-package awesome-tab
+  :load-path "~/.emacs.d/site-lisp/awesome-tab/"
+  :config (awesome-tab-mode t)
+  (awesome-tab-build-helm-source))
 
 (use-package all-the-icons
   :ensure t
   )
 
+(use-package zenburn-theme
+  :ensure t)
 
 (setq mode-icons-change-mode-name nil)
 
-(use-package afternoon-theme
-  :ensure t)
+;; (use-package afternoon-theme
+;;   :ensure t)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'afternoon t)
+                  (load-theme 'solarized-dark t)
                   (set-frame-font "Monaco-14")
                   )
                 )             
               )
-  (load-theme 'afternoon t)
+  (load-theme 'solarized-dark t)
   (set-frame-font "Monaco-14")
   )
 

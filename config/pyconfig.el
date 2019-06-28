@@ -8,14 +8,17 @@
   )
 
 
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" "/home/zzhang/.conda/envs/")
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1))
+
 (use-package py-yapf
   :ensure t
   :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
 
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/ms-python/"))
-;; (require 'ms-python)
-
-;; (add-hook 'python-mode-hook #'lsp)
 
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
@@ -23,4 +26,5 @@
 (add-hook 'python-mode-hook (lambda ()
                               (python-docstring-mode 1)))
 
-(use-package dap-python :after (lsp-java))
+
+(use-package dap-python :after (lsp-python))

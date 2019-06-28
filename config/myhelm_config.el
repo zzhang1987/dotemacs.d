@@ -1,16 +1,11 @@
 (use-package helm-config
   :ensure helm
   :config
-  (helm-mode 1)
-  (global-set-key (kbd "M-x") #'helm-M-x)
-  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") #'helm-find-files)
-   (use-package swiper-helm
+  (use-package swiper-helm
     :ensure t
     :config
-    (global-set-key (kbd "C-s") 'swiper-helm)
     )
-  
+
   (use-package helm-bibtex
     :ensure t
     :after helm
@@ -28,4 +23,11 @@
     :config
     (helm-projectile-on)
     )
+  (helm-mode 1)
+  (global-set-key (kbd "M-x") #'helm-M-x)
+  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+  (global-set-key (kbd "C-c C-f") #'helm-projectile)
+
   )
+ 
