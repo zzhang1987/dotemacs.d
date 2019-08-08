@@ -75,12 +75,8 @@
   :ensure t
   :after pyvenv 
   :config
-  ;; (setq lsp-python-ms-dir
-  ;;       (expand-file-name "~/source/python-language-server/output/bin/Release/"))
-  ;; (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
-  ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
-  (add-hook 'python-mode-hook 'lsp)
+  (add-hook 'python-mode-hook #'lsp)
   (add-hook 'sh-mode-hook #'lsp-sh-enable)
   (use-package lsp-java
     :ensure t
