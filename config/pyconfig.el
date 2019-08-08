@@ -28,11 +28,4 @@
 
 
 (use-package dap-python :after (lsp-python))
-(use-package ob-ipython
-  :ensure t)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ipython . t)
-   ;; other languages..
-   ))

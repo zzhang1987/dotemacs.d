@@ -69,7 +69,14 @@
   (yas/load-directory "~/.emacs.d/snippets")
   (yas-global-mode 1)
   )
+(use-package ob-ipython
+  :ensure t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ipython . t)
+   ;; other languages..
+   ))
 
 (use-package lsp-mode
   :ensure t
