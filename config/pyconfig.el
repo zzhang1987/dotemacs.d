@@ -12,6 +12,7 @@
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
+
 (use-package pyvenv
   :ensure t
   :init
@@ -31,7 +32,7 @@
                               (python-docstring-mode 1)))
 
 
-(use-package dap-python :after (lsp))
+(use-package dap-python :after (lsp-python))
 
 
 

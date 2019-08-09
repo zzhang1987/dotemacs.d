@@ -69,18 +69,21 @@
   (yas/load-directory "~/.emacs.d/snippets")
   (yas-global-mode 1)
   )
+(use-package ob-ipython
+  :ensure t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ipython . t)
+   ;; other languages..
+   ))
 
 (use-package lsp-mode
   :ensure t
   :after pyvenv 
   :config
-  ;; (setq lsp-python-ms-dir
-  ;;       (expand-file-name "~/source/python-language-server/output/bin/Release/"))
-  ;; (load-file "~/.emacs.d/site-lisp/lsp-python-ms/lsp-python-ms.el")
-  ;; (setq lsp-python-ms-dotnet "dotnet")
   (require 'lsp-clients)
-  (add-hook 'python-mode-hook 'lsp)
+  (add-hook 'python-mode-hook #'lsp)
   (add-hook 'sh-mode-hook #'lsp-sh-enable)
   (use-package lsp-java
     :ensure t
