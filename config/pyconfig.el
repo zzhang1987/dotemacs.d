@@ -31,4 +31,16 @@
                               (python-docstring-mode 1)))
 
 
-(use-package dap-python :after (lsp-python))
+(use-package dap-python :after (lsp))
+
+
+
+(when (eq system-type 'windows-nt)
+  (use-package lsp-python-ms
+    :ensure t
+    :demand nil
+    :config
+    (setq lsp-python-ms-dir
+          (expand-file-name "~/python-language-server/output/bin/Release/"))
+    )
+  )
