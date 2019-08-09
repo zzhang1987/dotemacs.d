@@ -16,7 +16,7 @@
 (use-package pyvenv
   :ensure t
   :init
-  (setenv "WORKON_HOME" "/home/zzhang/.conda/envs/")
+  (setenv "WORKON_HOME" "~/.conda/envs/")
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1))
 
@@ -33,15 +33,3 @@
 
 
 (use-package dap-python :after (lsp-python))
-
-
-
-(when (eq system-type 'windows-nt)
-  (use-package lsp-python-ms
-    :ensure t
-    :demand nil
-    :config
-    (setq lsp-python-ms-dir
-          (expand-file-name "~/python-language-server/output/bin/Release/"))
-    )
-  )
