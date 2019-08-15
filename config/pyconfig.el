@@ -13,12 +13,6 @@
   )
 
 
-(use-package pyvenv
-  :ensure t
-  :init
-  (setenv "WORKON_HOME" "~/.conda/envs/")
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1))
 
 (use-package py-yapf
   :ensure t

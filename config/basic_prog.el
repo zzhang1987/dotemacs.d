@@ -78,6 +78,16 @@
    ;; other languages..
    ))
 
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" "~/miniconda3/envs/")
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  (pyvenv-workon "python3.6")
+  )
+
+
 (use-package lsp-mode
   :ensure t
   :after pyvenv 

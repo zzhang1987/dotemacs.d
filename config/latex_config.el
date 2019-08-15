@@ -68,16 +68,6 @@
 	    (lambda nil
 	      (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
-
-  (if (string-equal "darwin" (symbol-name system-type))
-      
-      (setq TeX-view-program-list
-	    '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
-    
-    )
-  (if (string-equal "darwin" (symbol-name system-type))
-      (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-    )
   (setq TeX-PDF-mode t)
   (setq TeX-source-correlate-mode 'synctex)
   (setq TeX-source-correlate-method 'synctex)
@@ -107,9 +97,13 @@
     :config 
 
     ;; Use pdf-tools to open PDF files
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-          TeX-source-correlate-start-server t)
+    ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+    ;;       TeX-source-correlate-start-server t)
 
+    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+          TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+          TeX-source-correlate-start-server t)
+    
     ;; Update PDF buffers after successful LaTeX runs
     (add-hook 'TeX-after-compilation-finished-functions
               #'TeX-revert-document-buffer)
