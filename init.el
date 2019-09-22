@@ -24,6 +24,11 @@
 (use-package req-package
   :ensure t)
 
+;; Package Auto-Update
+(use-package auto-package-update
+  :ensure t)
+(auto-package-update-maybe)
+
 (add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
