@@ -67,20 +67,22 @@
   (add-hook 'LaTeX-mode-hook
 	    (lambda nil
 	      (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
-  
-  (use-package pdf-tools
-    :ensure t
-    :config 
 
-    ;; Use pdf-tools to open PDF files
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-          TeX-source-correlate-start-server t)
+  (when (eq system-type 'linux)
+    
+    (use-package pdf-tools
+      :ensure t
+      :config 
 
-    ;; Update PDF buffers after successful LaTeX runs
-    (add-hook 'TeX-after-compilation-finished-functions
-              #'TeX-revert-document-buffer)
-    (add-hook 'LaTeX-mode-hook 'pdf-tools-install))
-  
+      ;; Use pdf-tools to open PDF files
+      (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+            TeX-source-correlate-start-server t)
+
+      ;; Update PDF buffers after successful LaTeX runs
+      (add-hook 'TeX-after-compilation-finished-functions
+                #'TeX-revert-document-buffer)
+      (add-hook 'LaTeX-mode-hook 'pdf-tools-install))
+    )  
   (if (string-equal "darwin" (symbol-name system-type))
       
       (setq TeX-view-program-list
@@ -104,8 +106,6 @@
     
     (setq TeX-view-program-selection '((output-pdf "Sumatra PDF")))
     )
-=======
->>>>>>> 2d0a0d49ca1554f7cb657db06a49a090530e7759
   (setq TeX-PDF-mode t)
   (setq TeX-source-correlate-mode 'synctex)
   (setq TeX-source-correlate-method 'synctex)
