@@ -24,3 +24,5 @@ backups
 recentf\~
 pyim
 *.elc
+server
+.last-package-update-day
