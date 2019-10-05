@@ -13,7 +13,6 @@
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
-
 (use-package pyvenv
   :ensure t
   :init

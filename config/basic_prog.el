@@ -71,7 +71,18 @@
   (yas-load-directory "~/.emacs.d/snippets")
   (yas-global-mode 1)
   )
+
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" "~/miniconda3/envs/") ;; adjust according to system
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  )
+
+
 (use-package ob-ipython
+  :after pyvenv
   :ensure t)
 
 (org-babel-do-load-languages
@@ -79,13 +90,12 @@
  '((ipython . t)
    ;; other languages..
    ))
-
 (use-package lsp-mode
   :ensure t
   :after pyvenv 
   :config
   (require 'lsp-clients)
-  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'python-mode-hook 'lsp)
   (add-hook 'sh-mode-hook #'lsp-sh-enable)
   (use-package lsp-java
     :ensure t
