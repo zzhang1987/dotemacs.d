@@ -1,4 +1,4 @@
-
+(provide 'java_config)
 (require 'cc-mode)
 (use-package treemacs :ensure t)
 

@@ -1,4 +1,10 @@
+(provide 'cppconfig)
 (setq cquery-executable "/usr/bin/cquery")
+
+
+(when (eq system-type 'windows-nt)
+  (setq cquery-executable "c:/LLVM/bin/cquery.exe")
+  )
 (use-package modern-cpp-font-lock
   :ensure t
   :config
@@ -18,8 +24,10 @@
     (user-error nil)))
 
 (use-package cquery
+  :ensure t
   :commands lsp-cquery-enable
-  :init (add-hook 'c-mode-hook #'cquery//enable)
+  :init
+  (add-hook 'c-mode-hook #'cquery//enable)
   (add-hook 'c++-mode-hook #'cquery//enable)
   (setq cquery-sem-highlight-method 'font-lock)
   ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
@@ -118,7 +126,7 @@
 			 "protected: \n\n"
 			 "};"
 			 "\n\n# endif"))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(while (and (not (eobp)) (forward-line))
 	  (indent-according-to-mode))
 	
@@ -147,10 +155,10 @@
 			 "void\n" name "::\ninit_and_copy(const " name "& src) {\n\n}\n\n"
 			 name "&\n" name "::\noperator=(const " name "& src) {\n\n}\n\n"
 			 ))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(while (and (not (eobp)) (forward-line))
 	  (indent-according-to-mode))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(search-forward "Description:")
 	)
 )

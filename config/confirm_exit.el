@@ -1,3 +1,4 @@
+(provide 'confirm_exit)
 (defun confirm-exit-emacs ()
         "ask for confirmation before exiting emacs"
         (interactive)
