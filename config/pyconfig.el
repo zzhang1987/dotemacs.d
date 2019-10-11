@@ -15,9 +15,9 @@
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1))
 
-(use-package py-yapf
+(use-package py-autopep8
   :ensure t
-  :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+  :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
 
 
 (setq python-shell-interpreter "ipython"
@@ -28,4 +28,3 @@
 
 
 (use-package dap-python :after (lsp-python))
-
