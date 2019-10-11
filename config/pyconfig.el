@@ -1,17 +1,27 @@
+(provide 'pyconfig)
 (defun my/python-mode-hook ()
   ;; (add-to-list 'company-backends 'company-jedi)
   ;; (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
   (define-key python-mode-map (kbd "C-c <f5>") 'realgud:pdb)
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'hs-minor-mode)
-  (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
+(use-package python-docstring
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'python-docstring-mode)
+  )
 
 (use-package pyvenv
   :ensure t
   :init
-  (setenv "WORKON_HOME" "/home/zzhang/.conda/envs/")
+  
+  (when (eq system-type 'windows-nt)
+    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
+    )
+  (when (eq system-type 'linux)
+    (setenv "WORKON_HOME" "~/.conda/envs/"))
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1))
 

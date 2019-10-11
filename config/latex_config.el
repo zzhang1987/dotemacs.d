@@ -61,22 +61,50 @@
   (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
   
   (defun TeX-toggle-escape nil (interactive)
-  "Toggle Shell Escape"
-  (setq LaTeX-command
-	(if (string= LaTeX-command "latex") "latex -shell-escape" "latex")))
+         "Toggle Shell Escape"
+         (setq LaTeX-command
+               (if (string= LaTeX-command "latex") "latex -shell-escape" "latex")))
   (add-hook 'LaTeX-mode-hook
 	    (lambda nil
 	      (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
+  (when (eq system-type 'linux)
+    
+    (use-package pdf-tools
+      :ensure t
+      :config 
 
+      ;; Use pdf-tools to open PDF files
+      (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+            TeX-source-correlate-start-server t)
+
+      ;; Update PDF buffers after successful LaTeX runs
+      (add-hook 'TeX-after-compilation-finished-functions
+                #'TeX-revert-document-buffer)
+      (add-hook 'LaTeX-mode-hook 'pdf-tools-install))
+    )  
   (if (string-equal "darwin" (symbol-name system-type))
       
       (setq TeX-view-program-list
-	    '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
+            '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
     
     )
   (if (string-equal "darwin" (symbol-name system-type))
       (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+    )
+  (when (eq system-type 'windows-nt)
+    
+    (setq TeX-view-program-list
+          '(("Sumatra PDF" ("\"c:/Emacs/bin/SumatraPDF.exe\" -reuse-instance"
+                            (mode-io-correlate " -forward-search %b %n ") " %o"))))
+
+    (eval-after-load 'tex
+      '(progn
+         (assq-delete-all 'output-pdf TeX-view-program-selection)
+         (add-to-list 'TeX-view-program-selection '(output-pdf "Sumatra PDF")))
+      )
+    
+    (setq TeX-view-program-selection '((output-pdf "Sumatra PDF")))
     )
   (setq TeX-PDF-mode t)
   (setq TeX-source-correlate-mode 'synctex)
@@ -93,7 +121,7 @@
 
   (setq reftex-plug-into-AUCTeX t)
 
-  
+
   (use-package auctex-latexmk
     :ensure t
     :config
@@ -107,16 +135,19 @@
     :config 
 
     ;; Use pdf-tools to open PDF files
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-          TeX-source-correlate-start-server t)
+    ;; (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+    ;;       TeX-source-correlate-start-server t)
 
+    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+          TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+          TeX-source-correlate-start-server t)
+    
     ;; Update PDF buffers after successful LaTeX runs
     (add-hook 'TeX-after-compilation-finished-functions
               #'TeX-revert-document-buffer)
     (add-hook 'LaTeX-mode-hook 'pdf-tools-install))
   
   )
-
 
 
 

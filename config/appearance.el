@@ -1,3 +1,5 @@
+(provide 'appearance)
+
 (use-package powerline
   :ensure t
   :config (powerline-default-theme))
@@ -63,6 +65,9 @@
 
 ;; (use-package afternoon-theme
 ;;   :ensure t)
+
+(use-package solarized-theme
+  :ensure t)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions

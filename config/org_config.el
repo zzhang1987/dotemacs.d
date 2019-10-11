@@ -1,3 +1,4 @@
+(provide 'org_config)
 (use-package auto-org-md
   :ensure t)
 (require 'org)

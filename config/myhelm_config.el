@@ -1,3 +1,5 @@
+(provide 'myhelm_config)
+
 (use-package helm-config
   :ensure helm
   :config
