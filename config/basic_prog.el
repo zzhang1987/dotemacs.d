@@ -1,3 +1,5 @@
+(provide 'basic_prog)
+
 (use-package realgud
   :ensure t)
 
@@ -65,8 +67,8 @@
 (use-package yasnippet
   :ensure t
   :config 
-  (yas/initialize)
-  (yas/load-directory "~/.emacs.d/snippets")
+  (yas-global-mode 1)
+  (yas-load-directory "~/.emacs.d/snippets")
   (yas-global-mode 1)
   )
 

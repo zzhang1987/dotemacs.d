@@ -1,3 +1,4 @@
+(provide 'pyim_config)
 (use-package pyim
   :ensure t
   :config

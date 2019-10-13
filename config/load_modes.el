@@ -1,3 +1,4 @@
+(provide 'load_modes)
 
 ;;;; This snippet enables lua-mode
 ;; This line is not necessary, if lua-mode.el is already on your load-path
@@ -19,3 +20,6 @@
   :ensure t
   :config
   (vimish-fold-global-mode 1))
+
+(use-package nginx-mode
+  :ensure t)
