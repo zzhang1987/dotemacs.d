@@ -169,3 +169,6 @@
   :config
   (add-hook 'python-mode-hook 'fci-mode)
   )
+
+(use-package nginx-mode
+  :ensure t)

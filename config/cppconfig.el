@@ -5,6 +5,7 @@
 (when (eq system-type 'windows-nt)
   (setq cquery-executable "c:/LLVM/bin/cquery.exe")
   )
+
 (use-package modern-cpp-font-lock
   :ensure t
   :config
