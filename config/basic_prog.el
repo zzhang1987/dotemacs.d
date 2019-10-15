@@ -95,12 +95,16 @@
   :after pyvenv 
   :config
   (require 'lsp-clients)
-  (add-hook 'python-mode-hook 'lsp)
-  (add-hook 'sh-mode-hook #'lsp-sh-enable)
+  (add-hook 'sh-mode-hook 'lsp)
   (use-package lsp-java
     :ensure t
     :after lsp
     :config (add-hook 'java-mode-hook 'lsp))
+  (use-package lsp-python-ms
+    :ensure t
+    :hook (python-mode . (lambda ()
+                           (require 'lsp-python-ms)
+                           (lsp))))  ; or lsp-deferred
   )
 
 
