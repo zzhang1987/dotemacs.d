@@ -13,16 +13,20 @@
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
-(use-package pyvenv
+;; (use-package pyvenv
+;;   :ensure t
+;;   :init
+  
+;;   (setenv "WORKON_HOME" "~/.conda/envs/")
+;;   (when (eq system-type 'windows-nt)
+;;     (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
+;;     )
+;;   (pyvenv-mode 1)
+;;   (pyvenv-tracking-mode 1))
+(use-package elpy
   :ensure t
   :init
-  
-  (setenv "WORKON_HOME" "~/.conda/envs/")
-  (when (eq system-type 'windows-nt)
-    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
-    )
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1))
+  (elpy-enable))
 
 (use-package py-autopep8
   :ensure t
@@ -36,4 +40,4 @@
                               (python-docstring-mode 1)))
 
 
-(use-package dap-python :after (lsp-python))
+;; (use-package dap-python :after (lsp-python))

@@ -72,14 +72,6 @@
   (yas-global-mode 1)
   )
 
-(use-package pyvenv
-  :ensure t
-  :init
-  (setenv "WORKON_HOME" "~/miniconda3/envs/") ;; adjust according to system
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1)
-  )
-
 
 (use-package ob-ipython
   :after pyvenv
@@ -100,11 +92,11 @@
     :ensure t
     :after lsp
     :config (add-hook 'java-mode-hook 'lsp))
-  (use-package lsp-python-ms
-    :ensure t
-    :hook (python-mode . (lambda ()
-                           (require 'lsp-python-ms)
-                           (lsp))))  ; or lsp-deferred
+  ;; (use-package lsp-python-ms
+  ;;   :ensure t
+  ;;   :hook (python-mode . (lambda ()
+  ;;                          (require 'lsp-python-ms)
+  ;;                          (lsp))))  ; or lsp-deferred
   )
 
 
