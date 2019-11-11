@@ -88,6 +88,7 @@
   :config
   (require 'lsp-clients)
   (add-hook 'sh-mode-hook 'lsp)
+  (add-hook 'python-mode-hook 'lsp)
   (use-package lsp-java
     :ensure t
     :after lsp
