@@ -67,6 +67,7 @@
 (require 'pyim_config)
 (require 'java_config)
 (require 'mykeybindings)
+(require 'others)
 
 (when (eq system-type 'windows-nt)
   ;; gc visible
