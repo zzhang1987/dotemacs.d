@@ -13,21 +13,21 @@
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
-(use-package pyvenv
+
+(use-package sphinx-doc
   :ensure t
-  :init
-  
-  (when (eq system-type 'windows-nt)
-    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
-    )
-  (when (eq system-type 'linux)
-    (setenv "WORKON_HOME" "~/.conda/envs/"))
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1))
+  :config
+  (add-hook 'python-mode-hook 'sphinx-doc-mode))
+
+;; (use-package elpy
+;;   :ensure t
+;;   :init
+;;   (elpy-enable))
 
 (use-package py-autopep8
   :ensure t
   :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+
 
 
 (setq python-shell-interpreter "ipython"
@@ -37,6 +37,4 @@
                               (python-docstring-mode 1)))
 
 
-(use-package elpy
-  :ensure t
-  :init (elpy-enable))
+;; (use-package dap-python :after (lsp-python))

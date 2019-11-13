@@ -72,14 +72,6 @@
   (yas-global-mode 1)
   )
 
-(use-package pyvenv
-  :ensure t
-  :init
-  (setenv "WORKON_HOME" "~/miniconda3/envs/") ;; adjust according to system
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1)
-  )
-
 
 (use-package ob-ipython
   :after pyvenv
@@ -90,16 +82,30 @@
  '((ipython . t)
    ;; other languages..
    ))
+
+
+(use-package pyvenv
+  :ensure t
+  :init  
+  (setenv "WORKON_HOME" "~/.conda/envs/")
+  (when (eq system-type 'windows-nt)
+    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
+    )
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  (pyvenv-workon "python3.6")
+  )
+
 (use-package lsp-mode
   :ensure t
-  :after pyvenv 
+  :requires pyvenv
   :config
   (require 'lsp-clients)
-  (add-hook 'sh-mode-hook 'lsp)
   (use-package lsp-java
     :ensure t
     :after lsp
     :config (add-hook 'java-mode-hook 'lsp))
+  :hook (python-mode . lsp)
   )
 (use-package flycheck
   :ensure t)
@@ -107,11 +113,15 @@
 
 (use-package lsp-ui
   :ensure t
+  :requires lsp-mode flycheck
   :config
   (setq lsp-ui-doc-max-height 20
 	lsp-ui-doc-max-width 50
 	lsp-ui-sideline-ignore-duplicate t
-	lsp-ui-peek-always-show t))
+	lsp-ui-peek-always-show t)
+  (add-hook lsp-mode-hook 'lsp-ui-mode)
+  )
+
   
 (use-package company
   :ensure t
@@ -169,3 +179,6 @@
   :config
   (add-hook 'python-mode-hook 'fci-mode)
   )
+
+(use-package nginx-mode
+  :ensure t)
