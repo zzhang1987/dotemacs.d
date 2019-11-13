@@ -82,33 +82,46 @@
  '((ipython . t)
    ;; other languages..
    ))
+
+
+(use-package pyvenv
+  :ensure t
+  :init  
+  (setenv "WORKON_HOME" "~/.conda/envs/")
+  (when (eq system-type 'windows-nt)
+    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
+    )
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  (pyvenv-workon "python3.6")
+  )
+
 (use-package lsp-mode
   :ensure t
-  :after pyvenv 
+  :requires pyvenv
   :config
   (require 'lsp-clients)
-  (add-hook 'sh-mode-hook 'lsp)
-  (add-hook 'python-mode-hook 'lsp)
   (use-package lsp-java
     :ensure t
     :after lsp
     :config (add-hook 'java-mode-hook 'lsp))
-  ;; (use-package lsp-python-ms
-  ;;   :ensure t
-  ;;   :hook (python-mode . (lambda ()
-  ;;                          (require 'lsp-python-ms)
-  ;;                          (lsp))))  ; or lsp-deferred
+  :hook (python-mode . lsp)
+  
   )
 
 
 
 (use-package lsp-ui
   :ensure t
+  :requires lsp-mode flycheck
   :config
   (setq lsp-ui-doc-max-height 20
 	lsp-ui-doc-max-width 50
 	lsp-ui-sideline-ignore-duplicate t
-	lsp-ui-peek-always-show t))
+	lsp-ui-peek-always-show t)
+  (add-hook ‘lsp-mode-hook ‘lsp-ui-mode)
+  )
+
   
 (use-package company
   :ensure t
