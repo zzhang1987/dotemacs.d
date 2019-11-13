@@ -37,4 +37,6 @@
                               (python-docstring-mode 1)))
 
 
-(use-package dap-python :after (lsp-python))
+(use-package elpy
+  :ensure t
+  :init (elpy-enable))

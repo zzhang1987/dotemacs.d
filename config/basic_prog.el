@@ -100,13 +100,9 @@
     :ensure t
     :after lsp
     :config (add-hook 'java-mode-hook 'lsp))
-  (use-package lsp-python-ms
-    :ensure t
-    :hook (python-mode . (lambda ()
-                           (require 'lsp-python-ms)
-                           (lsp))))  ; or lsp-deferred
   )
-
+(use-package flycheck
+  :ensure t)
 
 
 (use-package lsp-ui

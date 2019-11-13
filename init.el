@@ -24,6 +24,8 @@
 (use-package req-package
   :ensure t)
 
+(use-package exec-path-from-shell
+  :ensure t)
 ;; gc visible
 (use-package gcmh
   :ensure t)
@@ -80,8 +82,6 @@
   ;; (setq garbage-collection-messages t)
   )
 
-(use-package exec-path-from-shell
-  :ensure t)
 (use-package xclip
   :ensure t
   :config
