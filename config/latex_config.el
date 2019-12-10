@@ -68,7 +68,6 @@
 	    (lambda nil
 	      (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
-
   (if (string-equal "darwin" (symbol-name system-type))
       
       (setq TeX-view-program-list
@@ -116,6 +115,5 @@
     )
   (use-package gscholar-bibtex
     :ensure t)
-)
 
 

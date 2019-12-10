@@ -121,7 +121,7 @@
 	lsp-ui-doc-max-width 50
 	lsp-ui-sideline-ignore-duplicate t
 	lsp-ui-peek-always-show t)
-  (add-hook ‘lsp-mode-hook ‘lsp-ui-mode)
+  (add-hook lsp-mode-hook 'lsp-ui-mode)
   )
 
   
