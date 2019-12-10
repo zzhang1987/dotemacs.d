@@ -19,23 +19,6 @@
                   ".cquery")
                 projectile-project-root-files-top-down-recurring)))
 
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
-
-(use-package cquery
-  :ensure t
-  :commands lsp-cquery-enable
-  :init
-  (add-hook 'c-mode-hook #'cquery//enable)
-  (add-hook 'c++-mode-hook #'cquery//enable)
-  (setq cquery-sem-highlight-method 'font-lock)
-  ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
-
-  ;; For rainbow semantic highlighting
-  ;; (cquery-use-default-rainbow-sem-highlight)
-  )
 
 
 (use-package rainbow-delimiters
