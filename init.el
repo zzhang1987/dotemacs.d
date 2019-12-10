@@ -20,6 +20,17 @@
     (package-install 'use-package))
   )
 
+;; shell related
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setq explicit-shell-file-name "/usr/bin/bash")
+      (setq shell-file-name "bash")
+      (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+      (setenv "SHELL" shell-file-name)
+      (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+      )
+)
+
 (require 'use-package)
 (use-package req-package
   :ensure t)
@@ -72,14 +83,10 @@
 (require 'mykeybindings)
 (require 'others)
 
-
 (use-package xclip
   :ensure t
   :config
   (xclip-mode 1))
-
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
 
 
 
