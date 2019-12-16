@@ -115,5 +115,6 @@
     )
   (use-package gscholar-bibtex
     :ensure t)
+  )
 
 

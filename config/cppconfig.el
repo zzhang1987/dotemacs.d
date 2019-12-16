@@ -1,10 +1,13 @@
 (provide 'cppconfig)
-(setq cquery-executable "/usr/bin/cquery")
 
-
-(when (eq system-type 'windows-nt)
-  (setq cquery-executable "c:/LLVM/bin/cquery.exe")
+(use-package eglot
+  :ensure t
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook 'eglot-ensure)
   )
+
 
 (use-package modern-cpp-font-lock
   :ensure t
@@ -13,29 +16,26 @@
   )
 (global-set-key (kbd "C-c m") 'recompile)
 
-(with-eval-after-load 'projectile
-  (setq projectile-project-root-files-top-down-recurring
-        (append '("compile_commands.json"
-                  ".cquery")
-                projectile-project-root-files-top-down-recurring)))
 
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
 
-(use-package cquery
-  :ensure t
-  :commands lsp-cquery-enable
-  :init
-  (add-hook 'c-mode-hook #'cquery//enable)
-  (add-hook 'c++-mode-hook #'cquery//enable)
-  (setq cquery-sem-highlight-method 'font-lock)
-  ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
 
-  ;; For rainbow semantic highlighting
-  ;; (cquery-use-default-rainbow-sem-highlight)
-  )
+;; (defun cquery//enable ()
+;;   (condition-case nil
+;;       (lsp-cquery-enable)
+;;     (user-error nil)))
+
+;; (use-package cquery
+;;   :ensure t
+;;   :commands lsp-cquery-enable
+;;   :init
+;;   (add-hook 'c-mode-hook #'cquery//enable)
+;;   (add-hook 'c++-mode-hook #'cquery//enable)
+;;   (setq cquery-sem-highlight-method 'font-lock)
+;;   ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
+
+;;   ;; For rainbow semantic highlighting
+;;   ;; (cquery-use-default-rainbow-sem-highlight)
+;;   )
 
 
 (use-package rainbow-delimiters
