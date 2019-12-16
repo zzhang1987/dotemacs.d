@@ -98,18 +98,20 @@
 
 (use-package lsp-mode
   :ensure t
-  :requires pyvenv
   :config
-  (require 'lsp-clients)
-  (use-package lsp-java
-    :ensure t
-    :after lsp
-    :config (add-hook 'java-mode-hook 'lsp))
-  :hook (python-mode . lsp)
+  (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
+  :hook
+  (python-mode . lsp)
+  (c++-mode . lsp)
+  (c-mode . lsp)
+  :commands lsp
   )
-(use-package flycheck
-  :ensure t)
 
+
+(use-package lsp-java
+  :ensure t
+  :after lsp
+  :config (add-hook 'java-mode-hook 'lsp))
 
 (use-package lsp-ui
   :ensure t

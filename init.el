@@ -20,6 +20,17 @@
     (package-install 'use-package))
   )
 
+;; shell related
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setq explicit-shell-file-name "/usr/bin/bash")
+      (setq shell-file-name "bash")
+      (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+      (setenv "SHELL" shell-file-name)
+      (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+      )
+)
+
 (require 'use-package)
 (use-package req-package
   :ensure t)
@@ -64,6 +75,7 @@
 (require 'confirm_exit)
 (require 'load_modes)
 (require 'org_config)
+(require 'go_config)
 (require 'mykeybindings)
 (require 'pyconfig)
 (require 'pyim_config)
@@ -71,27 +83,13 @@
 (require 'mykeybindings)
 (require 'others)
 
-(when (eq system-type 'windows-nt)
-  ;; gc visible
-  (use-package gcmh
-    :ensure t)
-  (gcmh-mode 1)
-  (setq gc-cons-threshold (* 512 1024 1024))
-  (setq gc-cons-percentage 0.5)
-  (setq inhibit-compacting-font-caches t)
-  (setq w32-get-true-file-attributes nil)
-  (run-with-idle-timer 5 t #'garbage-collect)
-  ;; 显示垃圾回收信息，这个可以作为调试用
-  ;; (setq garbage-collection-messages t)
-  )
-
 (use-package xclip
   :ensure t
   :config
   (xclip-mode 1))
 
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+
+
 
 
 (custom-set-variables
