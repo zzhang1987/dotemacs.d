@@ -25,6 +25,24 @@
   :ensure t)
 
 
+;; Auto compiling elc file
+(setq load-prefer-newer t)
+(defun gse-prompt-to-compile-init-file ()
+  (interactive)
+  (if (and
+       (string-equal buffer-file-name (expand-file-name "~/.emacs/init.el"))
+       (file-newer-than-file-p "~/.emacs/init.el" "~/.emacs/init.elc")
+       (y-or-n-p "byte-compile init.el? "))
+      (byte-compile-file "~/.emacs/init.el")))
+
+(add-hook 'kill-buffer-hook 'gse-prompt-to-compile-init-file)
+(use-package auto-compile
+  :ensure t
+  :config
+  (auto-compile-on-load-mode)
+  (auto-compile-on-save-mode)
+  )
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      setup coding system 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -36,7 +54,6 @@
 
 
 ;; modes
-(setq load-prefer-newer t)
 (xterm-mouse-mode 1)
 ;; (global-linum-mode 1)
 (global-auto-revert-mode)
