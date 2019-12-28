@@ -1,3 +1,4 @@
+(provide 'pyconfig)
 (defun my/python-mode-hook ()
   ;; (add-to-list 'company-backends 'company-jedi)
   ;; (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
@@ -13,10 +14,20 @@
   )
 
 
-
-(use-package py-yapf
+(use-package sphinx-doc
   :ensure t
-  :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
+  :config
+  (add-hook 'python-mode-hook 'sphinx-doc-mode))
+
+;; (use-package elpy
+;;   :ensure t
+;;   :init
+;;   (elpy-enable))
+
+(use-package py-autopep8
+  :ensure t
+  :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+
 
 
 (setq python-shell-interpreter "ipython"
@@ -26,4 +37,4 @@
                               (python-docstring-mode 1)))
 
 
-(use-package dap-python :after (lsp-python))
+;; (use-package dap-python :after (lsp-python))

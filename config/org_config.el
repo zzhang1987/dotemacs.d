@@ -1,9 +1,22 @@
+(provide 'org_config)
 (use-package auto-org-md
   :ensure t)
 (require 'org)
 (use-package calendar
   :ensure t)
 
+(require 'org-protocol)
+(with-eval-after-load 'org
+  (add-to-list 'org-modules 'org-protocol)
+  )
+
+(setq org-capture-templates
+      `(("c" "Captured" entry (file ,(concat "/home/zzhang/Proj/Notes/" "capture.org"))
+         "* %t %:description\nlink: %l \n\n%i\n" :prepend t :empty-lines-after 1)
+        ("n" "Captured Now!" entry (file ,(concat "/home/zzhang/Proj/Notes/" "capture.org"))
+         "* %t %:description\nlink: %l \n\n%i\n" :prepend t :emptry-lines-after 1 :immediate-finish t)
+        )
+      )
 ;; (use-package org-wild-notifier
 ;;   :ensure t
 ;;   :config

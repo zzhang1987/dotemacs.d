@@ -1,16 +1,21 @@
+(provide 'hist_related)
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      setup history of edited file
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (savehist-mode 1)
 (setq savehist-file "~/.emacs.d/.savehist")
-(setq history-length t)
+;; (setq history-length t)
 (setq history-delete-duplicates t)
 (setq savehist-save-minibuffer-history 1)
 (setq savehist-additional-variables
       '(kill-ring
         search-ring
         regexp-search-ring))
-
+(setq history-length 100)
+(put 'minibuffer-history 'history-length 50)
+(put 'evil-ex-history 'history-length 50)
+(put 'kill-ring 'history-length 25)
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Powerful undo system for emacs
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

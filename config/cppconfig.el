@@ -1,4 +1,6 @@
-(setq cquery-executable "/usr/bin/cquery")
+(provide 'cppconfig)
+
+
 (use-package modern-cpp-font-lock
   :ensure t
   :config
@@ -6,27 +8,7 @@
   )
 (global-set-key (kbd "C-c m") 'recompile)
 
-(with-eval-after-load 'projectile
-  (setq projectile-project-root-files-top-down-recurring
-        (append '("compile_commands.json"
-                  ".cquery")
-                projectile-project-root-files-top-down-recurring)))
 
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
-
-(use-package cquery
-  :commands lsp-cquery-enable
-  :init (add-hook 'c-mode-hook #'cquery//enable)
-  (add-hook 'c++-mode-hook #'cquery//enable)
-  (setq cquery-sem-highlight-method 'font-lock)
-  ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
-
-  ;; For rainbow semantic highlighting
-  ;; (cquery-use-default-rainbow-sem-highlight)
-  )
 
 
 (use-package rainbow-delimiters
@@ -118,7 +100,7 @@
 			 "protected: \n\n"
 			 "};"
 			 "\n\n# endif"))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(while (and (not (eobp)) (forward-line))
 	  (indent-according-to-mode))
 	
@@ -147,10 +129,10 @@
 			 "void\n" name "::\ninit_and_copy(const " name "& src) {\n\n}\n\n"
 			 name "&\n" name "::\noperator=(const " name "& src) {\n\n}\n\n"
 			 ))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(while (and (not (eobp)) (forward-line))
 	  (indent-according-to-mode))
-	(beginning-of-buffer)
+	(goto-char (point-min))
 	(search-forward "Description:")
 	)
 )
