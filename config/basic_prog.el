@@ -86,11 +86,14 @@
 
 (use-package pyvenv
   :ensure t
-  :init  
+  :init
   (setenv "WORKON_HOME" "~/.conda/envs/")
   (when (eq system-type 'windows-nt)
     (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
     )
+  
+  (when (eq system-type 'darwin)
+    (setenv "WORKON_HOME" "~/miniconda3/envs/"))
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1)
   (pyvenv-workon "python3.6")
