@@ -92,3 +92,17 @@
 
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yaml-mode dockerfile-mode docker zenburn-theme yasnippet-snippets xclip vimish-fold undo-tree tabbar swiper-helm sphinx-doc solarized-theme req-package realgud rainbow-identifiers rainbow-delimiters python-docstring python pyim py-yapf py-autopep8 project-explorer powerline pdf-tools org-wild-notifier org-alert oceanic-theme ob-ipython nyan-mode nginx-mode neotree modern-cpp-font-lock meghanada matlab-mode material-theme magit magic-latex-buffer lua-mode lsp-ui lsp-sh lsp-python-ms lsp-java jedi ivy-bibtex helm-projectile helm-company helm-bibtex haskell-mode gscholar-bibtex gradle-mode go-mode git-gutter+ gcmh fvwm-mode find-file-in-project fill-column-indicator fcitx exec-path-from-shell elpy el-get ein dashboard dap-mode cquery counsel company-lsp company-jedi company-box color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-project cmake-mode better-shell better-defaults auto-package-update auto-org-md auto-compile auctex-latexmk arc-dark-theme ample-theme all-the-icons afternoon-theme ac-math))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
