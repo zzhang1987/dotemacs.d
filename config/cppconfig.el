@@ -1,10 +1,5 @@
 (provide 'cppconfig)
-(setq cquery-executable "/usr/bin/cquery")
 
-
-(when (eq system-type 'windows-nt)
-  (setq cquery-executable "c:/LLVM/bin/cquery.exe")
-  )
 
 (use-package modern-cpp-font-lock
   :ensure t
@@ -13,11 +8,6 @@
   )
 (global-set-key (kbd "C-c m") 'recompile)
 
-(with-eval-after-load 'projectile
-  (setq projectile-project-root-files-top-down-recurring
-        (append '("compile_commands.json"
-                  ".cquery")
-                projectile-project-root-files-top-down-recurring)))
 
 
 
