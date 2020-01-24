@@ -77,18 +77,27 @@
   (if (string-equal "darwin" (symbol-name system-type))
       (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
     )
+  (use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-tools-install)
+    ;; Use pdf-tools to open PDF files
+    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+          TeX-source-correlate-start-server t)
+
+    ;; Update PDF buffers after successful LaTeX runs
+    (add-hook 'TeX-after-compilation-finished-functions
+              #'TeX-revert-document-buffer)
+    )
   (when (eq system-type 'windows-nt)
-    
     (setq TeX-view-program-list
           '(("Sumatra PDF" ("\"c:/Emacs/bin/SumatraPDF.exe\" -reuse-instance"
                             (mode-io-correlate " -forward-search %b %n ") " %o"))))
-
     (eval-after-load 'tex
       '(progn
          (assq-delete-all 'output-pdf TeX-view-program-selection)
          (add-to-list 'TeX-view-program-selection '(output-pdf "Sumatra PDF")))
       )
-    
     (setq TeX-view-program-selection '((output-pdf "Sumatra PDF")))
     )
   (setq TeX-PDF-mode t)
