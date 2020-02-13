@@ -49,17 +49,11 @@
 ;;   (tabbar-mode 'nil)
 ;;   )
 
-(use-package awesome-tab
-  :load-path "~/.emacs.d/site-lisp/awesome-tab/"
-  :config (awesome-tab-mode t)
-  (awesome-tab-build-helm-source))
 
 (use-package all-the-icons
   :ensure t
   )
 
-(use-package zenburn-theme
-  :ensure t)
 
 (setq mode-icons-change-mode-name nil)
 
@@ -95,3 +89,8 @@
     (global-set-key [f2] 'neotree-refresh)
     (global-set-key [f8] 'neotree-toggle))
   )
+
+(use-package awesome-tab
+  :load-path "~/.emacs.d/site-lisp/awesome-tab/"
+  :config (awesome-tab-mode t)
+  (awesome-tab-build-helm-source))

@@ -95,7 +95,6 @@
 (require 'go_config)
 (require 'mykeybindings)
 (require 'pyconfig)
-(require 'pyim_config)
 (require 'java_config)
 (require 'mykeybindings)
 (require 'others)
