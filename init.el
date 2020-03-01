@@ -112,21 +112,5 @@
   :ensure t
   :config
   (xclip-mode 1))
+(setq exec-path-from-shell-debug t)
 
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files nil)
- '(package-selected-packages
-   (quote
-    (gscholar-bibtex auctex-latexmk xclip gradle-mode dap-mode py-autopep8 sphinx-doc python-docstring go-mode auto-org-md vimish-fold yasnippet undo-tree swiper-helm solarized-theme req-package realgud rainbow-delimiters pyvenv project-explorer powerline pdf-tools ob-ipython nyan-mode nginx-mode neotree modern-cpp-font-lock magit magic-latex-buffer lsp-ui lsp-java helm-projectile helm-company helm-bibtex haskell-mode git-gutter+ find-file-in-project fill-column-indicator exec-path-from-shell el-get dashboard company-lsp company-box cmake-project cmake-mode better-shell better-defaults auto-package-update auto-compile auctex all-the-icons))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
