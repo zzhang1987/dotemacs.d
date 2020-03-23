@@ -89,6 +89,7 @@
     (add-hook 'TeX-after-compilation-finished-functions
               #'TeX-revert-document-buffer)
     )
+  (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
   (when (eq system-type 'windows-nt)
     (setq TeX-view-program-list
           '(("Sumatra PDF" ("\"c:/Emacs/bin/SumatraPDF.exe\" -reuse-instance"

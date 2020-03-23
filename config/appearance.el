@@ -18,11 +18,11 @@
 ;;      Show line number of current coding window
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (use-package linum
-  :init
-  (progn
-    (global-display-line-numbers-mode nil)
-    (setq display-line-numbers "%4d \u2502")
-    ))
+  :ensure t
+  :config
+  (setq linum-format 'dynamic)
+  (global-linum-mode 1)
+  )
 
 
 
@@ -67,13 +67,13 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'tsdh-dark t)
-                  (set-frame-font "Monaco-14")
+                  (load-theme 'solarized-dark t)
+                  (set-frame-font "Source Code Pro-14")
                   )
                 )             
               )
-  (load-theme 'tsdh-dark t)
-  (set-frame-font "Monaco-14")
+  (load-theme 'solarized-dark t)
+  (set-frame-font "Source Code Pro-14")
   )
 
 (use-package all-the-icons

@@ -43,6 +43,15 @@
   :ensure t)
 (auto-package-update-maybe)
 
+(if (eq system-type 'darwin)
+    (progn
+      (getenv "PATH")
+      (setenv "PATH"
+              (concat
+               "/Library/TeX/texbin/" ":"
+               (getenv "PATH")))
+      )
+    )
 (add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
 
 ;; Auto compiling elc file
@@ -104,5 +113,6 @@
   :config
   (xclip-mode 1))
 
-
+(setq exec-path-from-shell-arguments '("-l"))
+(exec-path-from-shell-initialize)
 
