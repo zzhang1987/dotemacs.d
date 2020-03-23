@@ -100,8 +100,7 @@
   (use-package pyvenv
     :ensure t
     :init
-    (setenv "WORKON_HOME" "~/.conda/envs/")
-    
+    (setenv "WORKON_HOME" "~/.conda/envs/") 
     (pyvenv-mode 1)
     (pyvenv-tracking-mode 1)
     (pyvenv-workon "python3.6")
