@@ -95,8 +95,20 @@
     (pyvenv-workon "python3.6")
     )
   )
-(when (eq system-type 'darwin)
 
+(when (eq system-type 'gnu/linux)
+  (use-package pyvenv
+    :ensure t
+    :init
+    (setenv "WORKON_HOME" "~/.conda/envs/")
+    
+    (pyvenv-mode 1)
+    (pyvenv-tracking-mode 1)
+    (pyvenv-workon "python3.6")
+    )
+  )
+
+(when (eq system-type 'darwin)
   (use-package pyvenv
     :ensure t
     :init
@@ -118,6 +130,7 @@
   (c-mode . lsp)
   :commands lsp
   )
+
 
 
 (use-package lsp-java
