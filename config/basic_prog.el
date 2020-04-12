@@ -74,7 +74,6 @@
 
 
 (use-package ob-ipython
-  :after pyvenv
   :ensure t)
 
 (org-babel-do-load-languages
