@@ -68,12 +68,12 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'tsdh-dark t)
-                  (set-frame-font "Monaco-14")
+                  (set-frame-font "Source Code Pro-14")
                   )
                 )             
               )
   (load-theme 'tsdh-dark t)
-  (set-frame-font "Monaco-14")
+  (set-frame-font "Source Code Pro-14")
   )
 
 (use-package all-the-icons
