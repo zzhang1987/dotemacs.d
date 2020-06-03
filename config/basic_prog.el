@@ -74,7 +74,6 @@
 
 
 (use-package ob-ipython
-  :after pyvenv
   :ensure t)
 
 (org-babel-do-load-languages
@@ -83,30 +82,41 @@
    ;; other languages..
    ))
 
-(when (eq system-type 'windows-nt)
+;; (when (eq system-type 'windows-nt)
 
-  (use-package pyvenv
-    :ensure t
-    :init
-    (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
+;;   (use-package pyvenv
+;;     :ensure t
+;;     :init
+;;     (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
     
-    (pyvenv-mode 1)
-    (pyvenv-tracking-mode 1)
-    (pyvenv-workon "python3.6")
-    )
-  )
-(when (eq system-type 'darwin)
+;;     (pyvenv-mode 1)
+;;     (pyvenv-tracking-mode 1)
+;;     (pyvenv-workon "python3.6")
+;;     )
+;;   )
 
-  (use-package pyvenv
-    :ensure t
-    :init
-    (setenv "WORKON_HOME" "~/miniconda3/envs/")
+;; (when (eq system-type 'gnu/linux)
+;;   (use-package pyvenv
+;;     :ensure t
+;;     :init
+;;     (setenv "WORKON_HOME" "~/.conda/envs/") 
+;;     (pyvenv-mode 1)
+;;     (pyvenv-tracking-mode 1)
+;;     (pyvenv-workon "python3.6")
+;;     )
+;;   )
+
+;; (when (eq system-type 'darwin)
+;;   (use-package pyvenv
+;;     :ensure t
+;;     :init
+;;     (setenv "WORKON_HOME" "~/miniconda3/envs/")
     
-    (pyvenv-mode 1)
-    (pyvenv-tracking-mode 1)
-    (pyvenv-workon "python3.6")
-    )
-  )
+;;     (pyvenv-mode 1)
+;;     (pyvenv-tracking-mode 1)
+;;     (pyvenv-workon "python3.6")
+;;     )
+;;   )
 
 (use-package lsp-mode
   :ensure t
@@ -118,6 +128,7 @@
   (c-mode . lsp)
   :commands lsp
   )
+
 
 
 (use-package lsp-java

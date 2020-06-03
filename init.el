@@ -28,6 +28,9 @@
       (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
       (setenv "SHELL" shell-file-name)
       (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+      
+      (setq exec-path-from-shell-arguments '("-l"))
+      (exec-path-from-shell-initialize)
       )
 )
 
@@ -50,6 +53,12 @@
               (concat
                "/Library/TeX/texbin/" ":"
                (getenv "PATH")))
+<<<<<<< HEAD
+=======
+      
+      (setq exec-path-from-shell-arguments '("-l"))
+      (exec-path-from-shell-initialize)
+>>>>>>> 5391f3264600d13fcdc561f5f6e1308723626fb6
       )
     )
 (add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
@@ -113,18 +122,3 @@
   :config
   (xclip-mode 1))
 
-
-;; (native-comp-async "~/.config/emacs/elpa" n t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(auto-async-byte-compile rainbow-identifiers yasnippet xclip vimish-fold undo-tree swiper-helm sphinx-doc solarized-theme req-package realgud rainbow-delimiters pyvenv python-docstring py-autopep8 project-explorer powerline pdf-tools ob-ipython nyan-mode nginx-mode neotree modern-cpp-font-lock magit magic-latex-buffer lsp-ui lsp-java helm-projectile helm-company helm-bibtex haskell-mode gscholar-bibtex gradle-mode go-mode git-gutter+ flycheck find-file-in-project fill-column-indicator exec-path-from-shell el-get dashboard dap-mode company-lsp company-box cmake-project cmake-mode better-shell better-defaults auto-package-update auto-org-md auto-compile auctex-latexmk all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

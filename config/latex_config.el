@@ -89,17 +89,18 @@
     (add-hook 'TeX-after-compilation-finished-functions
               #'TeX-revert-document-buffer)
     )
-  (when (eq system-type 'windows-nt)
-    (setq TeX-view-program-list
-          '(("Sumatra PDF" ("\"c:/Emacs/bin/SumatraPDF.exe\" -reuse-instance"
-                            (mode-io-correlate " -forward-search %b %n ") " %o"))))
-    (eval-after-load 'tex
-      '(progn
-         (assq-delete-all 'output-pdf TeX-view-program-selection)
-         (add-to-list 'TeX-view-program-selection '(output-pdf "Sumatra PDF")))
-      )
-    (setq TeX-view-program-selection '((output-pdf "Sumatra PDF")))
-    )
+  (add-hook 'pdf-view-mode-hook (lambda() (linum-mode -1)))
+  ;; (when (eq system-type 'windows-nt)
+  ;;   (setq TeX-view-program-list
+  ;;         '(("Sumatra PDF" ("\"c:/Emacs/bin/SumatraPDF.exe\" -reuse-instance"
+  ;;                           (mode-io-correlate " -forward-search %b %n ") " %o"))))
+  ;;   (eval-after-load 'tex
+  ;;     '(progn
+  ;;        (assq-delete-all 'output-pdf TeX-view-program-selection)
+  ;;        (add-to-list 'TeX-view-program-selection '(output-pdf "Sumatra PDF")))
+  ;;     )
+  ;;   (setq TeX-view-program-selection '((output-pdf "Sumatra PDF")))
+  ;;   )
   (setq TeX-PDF-mode t)
   (setq TeX-source-correlate-mode 'synctex)
   (setq TeX-source-correlate-method 'synctex)
