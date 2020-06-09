@@ -67,12 +67,12 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'solarized-dark t)
+                  (load-theme 'tsdh-dark t)
                   (set-frame-font "Source Code Pro-14")
                   )
                 )             
               )
-  (load-theme 'solarized-dark t)
+  (load-theme 'tsdh-dark t)
   (set-frame-font "Source Code Pro-14")
   )
 
