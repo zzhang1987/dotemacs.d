@@ -101,6 +101,7 @@
 (require 'myhelm_config)
 (require 'appearance)
 (require 'basic_prog)
+(require 'dap_config)
 (require 'mkexe)
 (require 'cppconfig)
 (require 'latex_config)
@@ -119,3 +120,9 @@
   :config
   (xclip-mode 1))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
