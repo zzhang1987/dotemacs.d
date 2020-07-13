@@ -12,6 +12,9 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-s") 'swiper-helm)
+(global-set-key (kbd "C-c C-n") 'new-frame)
+(global-set-key (kbd "C-c <f5>") 'compile)
+
 ;; key bindings
 (when (eq system-type 'darwin) ;; mac specific settings
   (setq mac-option-modifier 'alt)

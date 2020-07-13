@@ -76,6 +76,9 @@
   (set-frame-font "Source Code Pro-14")
   )
 
+(add-to-list 'default-frame-alist
+             '(font . "Source Code Pro-14"))
+
 (use-package all-the-icons
   :ensure t)
 
@@ -94,3 +97,7 @@
   :load-path "~/.emacs.d/site-lisp/awesome-tab/"
   :config (awesome-tab-mode t)
   (awesome-tab-build-helm-source))
+
+;; set transparency
+(set-frame-parameter (selected-frame) 'alpha '(85 85))
+(add-to-list 'default-frame-alist '(alpha 85 85))
