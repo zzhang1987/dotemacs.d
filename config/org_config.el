@@ -33,9 +33,9 @@
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 
 
- (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/school.org" 
-                             "~/org/home.org"))
+ ;; (setq org-agenda-files (list "~/org/work.org"
+ ;;                             "~/org/school.org" 
+ ;;                             "~/org/home.org"))
 
  (setq org-agenda-include-diary t)
  (setq calendar-mark-holidays-flag t)

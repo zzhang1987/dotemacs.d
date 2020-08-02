@@ -1,5 +1,6 @@
 (setq user-mail-address "ZHANG, Zhen <zhen@zzhang.org>")
 (setq gc-cons-threshold 100000000)
+(setq max-lisp-eval-depth 5000)
 
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
@@ -20,6 +21,13 @@
     (package-install 'use-package))
   )
 
+(require 'use-package)
+(use-package req-package
+  :ensure t)
+(use-package exec-path-from-shell
+  :ensure t)
+
+
 ;; shell related
 (if (eq system-type 'gnu/linux)
     (progn
@@ -34,12 +42,7 @@
       )
 )
 
-(require 'use-package)
-(use-package req-package
-  :ensure t)
 
-(use-package exec-path-from-shell
-  :ensure t)
 
 ;; Auto update packages
 (use-package auto-package-update
