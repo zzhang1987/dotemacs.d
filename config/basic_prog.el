@@ -122,6 +122,15 @@
   :ensure t
   :config
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
+  (setq max-specpdl-size 32000) ;; HACK - fix bug in LSP
+  :custom
+  (lsp-enable-codeaction t)
+  (lsp-enable-completion-at-point t)
+  (lsp-enable-eldoc t)
+  (lsp-enable-flycheck t)
+  (lsp-enable-indentation nil)
+  (lsp-enable-indentation t)
+  (lsp-highlight-symbol-at-point t)
   :hook
   (python-mode . lsp)
   (c++-mode . lsp)

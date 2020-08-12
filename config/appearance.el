@@ -93,10 +93,10 @@
     (global-set-key [f8] 'neotree-toggle))
   )
 
-(use-package awesome-tab
-  :load-path "~/.emacs.d/site-lisp/awesome-tab/"
-  :config (awesome-tab-mode t)
-  (awesome-tab-build-helm-source))
+;; (use-package awesome-tab
+;;   :load-path "~/.emacs.d/site-lisp/awesome-tab/"
+;;   :config (awesome-tab-mode t)
+;;   (awesome-tab-build-helm-source))
 
 ;; set transparency
 (set-frame-parameter (selected-frame) 'alpha '(85 85))

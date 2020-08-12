@@ -117,6 +117,7 @@
 (require 'java_config)
 (require 'mykeybindings)
 (require 'others)
+(require 'tabbar_config)
 
 (use-package xclip
   :ensure t
