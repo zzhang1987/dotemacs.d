@@ -67,17 +67,17 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'tsdh-dark t)
-                  (set-frame-font "Source Code Pro-14")
+                  (load-theme 'solarized-dark t)
+                  (set-frame-font "Source Code Pro-12")
                   )
                 )             
               )
-  (load-theme 'tsdh-dark t)
-  (set-frame-font "Source Code Pro-14")
+  (load-theme 'solarized-dark t)
+  (set-frame-font "Source Code Pro-12")
   )
 
 (add-to-list 'default-frame-alist
-             '(font . "Source Code Pro-14"))
+             '(font . "Source Code Pro-12"))
 
 (use-package all-the-icons
   :ensure t)
