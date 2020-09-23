@@ -42,8 +42,6 @@
       )
 )
 
-
-
 ;; Auto update packages
 (use-package auto-package-update
   :ensure t)
@@ -51,16 +49,11 @@
 
 (if (eq system-type 'darwin)
     (progn
-      (getenv "PATH")
       (setenv "PATH"
-              (concat
-               "/Library/TeX/texbin/" ":"
-               (getenv "PATH")))
-      
-      (setq exec-path-from-shell-arguments '("-l"))
-      (exec-path-from-shell-initialize)
+              (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
+      (setq exec-path (split-string (getenv "PATH") ":"))
       )
-    )
+  )
 (add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
 
 ;; Auto compiling elc file
