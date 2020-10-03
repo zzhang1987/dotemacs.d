@@ -69,15 +69,27 @@
                 (with-selected-frame frame
                   (load-theme 'solarized-dark t)
                   (set-frame-font "Source Code Pro-12")
+                  (if (eq system-type 'darwin)
+                      (set-frame-font "Source Code Pro-14")
+                      )
                   )
                 )             
               )
   (load-theme 'solarized-dark t)
   (set-frame-font "Source Code Pro-12")
+  (if (eq system-type 'darwin)
+                      (set-frame-font "Source Code Pro-14")
+                      )
+  
   )
 
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-12"))
+
+(if (eq system-type 'darwin)
+    (add-to-list 'default-frame-alist
+                 '(font . "Source Code Pro-14"))
+  )
 
 (use-package all-the-icons
   :ensure t)
