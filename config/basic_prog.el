@@ -67,8 +67,7 @@
 (use-package yasnippet
   :ensure t
   :config 
-  (yas-global-mode 1)
-  (yas-load-directory "~/.emacs.d/snippets")
+  (yas-load-directory "~/.snippets")
   (yas-global-mode 1)
   )
 
@@ -190,6 +189,8 @@
 ;;      Fixme-mode
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/pkg/vendors"))
+(add-to-list 'load-path (expand-file-name (concat (getenv "XDG_CONFIG_HOME") "/emacs/pkg/vendors")))
+
 (require 'fixme-mode)
 (defvar my-highlight-words
   '("FIXME" "TODO" "BUG"))

@@ -4,7 +4,7 @@
 ;;      setup history of edited file
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (savehist-mode 1)
-(setq savehist-file "~/.emacs.d/.savehist")
+(setq savehist-file "~/.savehist")
 ;; (setq history-length t)
 (setq history-delete-duplicates t)
 (setq savehist-save-minibuffer-history 1)

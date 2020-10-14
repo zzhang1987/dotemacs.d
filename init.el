@@ -54,7 +54,6 @@
       (setq exec-path (split-string (getenv "PATH") ":"))
       )
   )
-(add-to-list 'exec-path "/home/zzhang/miniconda3/bin/")
 
 ;; Auto compiling elc file
 (setq load-prefer-newer t)
@@ -92,7 +91,9 @@
 (display-battery-mode 1)
 
 (add-to-list 'load-path "~/.emacs.d/config")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+(add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
+					;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+
 (require 'hist_related)
 (require 'myhelm_config)
 (require 'appearance)
