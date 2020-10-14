@@ -92,7 +92,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/config")
 (add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
-					;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 (require 'hist_related)
 (require 'myhelm_config)
