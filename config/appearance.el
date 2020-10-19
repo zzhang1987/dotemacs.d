@@ -60,35 +60,36 @@
 ;; (use-package afternoon-theme
 ;;   :ensure t)
 
-(use-package solarized-theme
+(use-package material-theme
   :ensure t)
+
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'solarized-dark t)
-                  (set-frame-font "Source Code Pro-12")
+                  (load-theme 'material t)
+                  (set-frame-font "Source Code Pro-13")
                   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-14")
+                      (set-frame-font "Source Code Pro-13")
                       )
                   )
                 )             
               )
-  (load-theme 'solarized-dark t)
-  (set-frame-font "Source Code Pro-12")
+  (load-theme 'material t)
+  (set-frame-font "Source Code Pro-13")
   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-14")
+                      (set-frame-font "Source Code Pro-13")
                       )
   
   )
 
 (add-to-list 'default-frame-alist
-             '(font . "Source Code Pro-12"))
+             '(font . "Source Code Pro-13"))
 
 (if (eq system-type 'darwin)
     (add-to-list 'default-frame-alist
-                 '(font . "Source Code Pro-14"))
+                 '(font . "Source Code Pro-13"))
   )
 
 (use-package all-the-icons

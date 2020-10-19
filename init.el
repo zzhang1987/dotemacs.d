@@ -55,6 +55,15 @@
       )
   )
 
+
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setenv "PATH"
+              (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
+      (setq exec-path (split-string (getenv "PATH") ":"))
+      )
+  )
+
 ;; Auto compiling elc file
 (setq load-prefer-newer t)
 
