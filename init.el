@@ -24,23 +24,18 @@
 (require 'use-package)
 (use-package req-package
   :ensure t)
-(use-package exec-path-from-shell
-  :ensure t)
 
 
 ;; shell related
-(if (eq system-type 'gnu/linux)
-    (progn
-      (setq explicit-shell-file-name "/usr/bin/bash")
-      (setq shell-file-name "bash")
-      (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-      (setenv "SHELL" shell-file-name)
-      (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-      
-      (setq exec-path-from-shell-arguments '("-l"))
-      (exec-path-from-shell-initialize)
-      )
-)
+;; (if (eq system-type 'gnu/linux)
+;;     (progn
+;;       (setq explicit-shell-file-name "/usr/bin/bash")
+;;       (setq shell-file-name "bash")
+;;       (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+;;       (setenv "SHELL" shell-file-name)
+;;       (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)      
+;;       )
+;; )
 
 ;; Auto update packages
 (use-package auto-package-update
@@ -49,6 +44,8 @@
 
 (if (eq system-type 'darwin)
     (progn
+      (use-package exec-path-from-shell
+        :ensure t)
       (setenv "PATH"
               (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
       (setq exec-path (split-string (getenv "PATH") ":"))
