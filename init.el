@@ -37,8 +37,6 @@
       (setenv "SHELL" shell-file-name)
       (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
       
-      (setq exec-path-from-shell-arguments '("-l"))
-      (exec-path-from-shell-initialize)
       )
 )
 
