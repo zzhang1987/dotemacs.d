@@ -26,9 +26,9 @@
 ;;   :init
 ;;   (elpy-enable))
 
-(use-package py-autopep8
+(use-package py-yapf
   :ensure t
-  :config (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+  :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
 
 
 
