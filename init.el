@@ -52,6 +52,13 @@
       )
   )
 
+(if (eq system-type 'gnu/linux)
+    (progn
+      (add-to-list 'exec-path (concat (getenv "HOME") "/miniconda3/bin"))
+      (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
+      )
+    )
+
 
 ;; Auto compiling elc file
 (setq load-prefer-newer t)
