@@ -42,22 +42,6 @@
   :ensure t)
 (auto-package-update-maybe)
 
-(if (eq system-type 'darwin)
-    (progn
-      (use-package exec-path-from-shell
-        :ensure t)
-      (setenv "PATH"
-              (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
-      (setq exec-path (split-string (getenv "PATH") ":"))
-      )
-  )
-
-(if (eq system-type 'gnu/linux)
-    (progn
-      (add-to-list 'exec-path (concat (getenv "HOME") "/miniconda3/bin"))
-      (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
-      )
-    )
 
 
 ;; Auto compiling elc file
@@ -91,6 +75,7 @@
 (add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
+(require 'path_config)
 (require 'hist_related)
 (require 'myhelm_config)
 (require 'appearance)
