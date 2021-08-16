@@ -42,15 +42,6 @@
   :ensure t)
 (auto-package-update-maybe)
 
-(if (eq system-type 'darwin)
-    (progn
-      (use-package exec-path-from-shell
-        :ensure t)
-      (setenv "PATH"
-              (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
-      (setq exec-path (split-string (getenv "PATH") ":"))
-      )
-  )
 
 
 
@@ -72,7 +63,7 @@
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
-
+(setq recentf-auto-cleanup 'never)
 
 ;; modes
 (xterm-mouse-mode 1)
@@ -85,6 +76,7 @@
 (add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
+(require 'path_config)
 (require 'hist_related)
 (require 'myhelm_config)
 (require 'appearance)
