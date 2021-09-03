@@ -27,3 +27,5 @@ pyim
 server
 .last-package-update-day
 places
+session.*
+custom.el
