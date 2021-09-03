@@ -122,6 +122,8 @@
   :config
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
   (setq max-specpdl-size 32000) ;; HACK - fix bug in LSP
+  (setq lsp-prefer-capf t)
+
   :custom
   (lsp-enable-codeaction t)
   (lsp-enable-completion-at-point t)
@@ -144,20 +146,23 @@
   :after lsp
   :config (add-hook 'java-mode-hook 'lsp))
 
-(use-package lsp-ui
-  :ensure t
-  :requires lsp-mode flycheck
-  :config
-  (setq lsp-ui-doc-max-height 20
-	lsp-ui-doc-max-width 50
-	lsp-ui-sideline-ignore-duplicate t
-	lsp-ui-peek-always-show t)
-  (add-hook lsp-mode-hook 'lsp-ui-mode)
-  )
+;; (use-package lsp-ui
+;;   :ensure t
+;;   :requires lsp-mode flycheck
+;;   :config
+;;   (setq lsp-ui-doc-max-height 20
+;; 	lsp-ui-doc-max-width 50
+;; 	lsp-ui-sideline-ignore-duplicate t
+;; 	lsp-ui-peek-always-show t)
+;;   (add-hook lsp-mode-hook 'lsp-ui-mode)
+;;   )
 
   
 (use-package company
   :ensure t
+  :hook (prog-mode . company-mode)
+  :bind (:map company-mode-map
+         ([remap completion-at-point] . company-complete))
   :config
   (setq company-minimum-prefix-length 1
 	company-idle-delay 0
@@ -165,16 +170,25 @@
 	company-transformers nil
 	company-show-numbers t
 	)
-  (global-company-mode +1))
-
-(use-package company-lsp
-  :ensure t
-  :commands (company-lsp)
+  (global-company-mode +1)
+  :custom
+  (company-idle-delay 0)
+  (company-echo-delay 0)
+  (company-show-numbers t)
+  (company-require-match nil)
+  (company-tooltip-align-annotations t)
+  (company-backends '(company-capf))
+  
   )
 
-(use-package company-box
-  :ensure t
-  :hook (company-mode . company-box-mode))
+;; (use-package company-lsp
+;;   :ensure t
+;;   :commands (company-lsp)
+;;   )
+
+;; (use-package company-box
+;;   :ensure t
+;;   :hook (company-mode . company-box-mode))
 
 
 (use-package neotree

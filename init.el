@@ -24,36 +24,25 @@
 (require 'use-package)
 (use-package req-package
   :ensure t)
-(use-package exec-path-from-shell
-  :ensure t)
 
 
 ;; shell related
-(if (eq system-type 'gnu/linux)
-    (progn
-      (setq explicit-shell-file-name "/usr/bin/bash")
-      (setq shell-file-name "bash")
-      (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-      (setenv "SHELL" shell-file-name)
-      (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-      
-      (setq exec-path-from-shell-arguments '("-l"))
-      (exec-path-from-shell-initialize)
-      )
-)
+;; (if (eq system-type 'gnu/linux)
+;;     (progn
+;;       (setq explicit-shell-file-name "/usr/bin/bash")
+;;       (setq shell-file-name "bash")
+;;       (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+;;       (setenv "SHELL" shell-file-name)
+;;       (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)      
+;;       )
+;; )
 
 ;; Auto update packages
 (use-package auto-package-update
   :ensure t)
 (auto-package-update-maybe)
 
-(if (eq system-type 'darwin)
-    (progn
-      (setenv "PATH"
-              (shell-command-to-string "source $HOME/.zshrc && printf $PATH"))
-      (setq exec-path (split-string (getenv "PATH") ":"))
-      )
-  )
+
 
 
 ;; Auto compiling elc file
@@ -74,7 +63,7 @@
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
-
+(setq recentf-auto-cleanup 'never)
 
 ;; modes
 (xterm-mouse-mode 1)
@@ -87,6 +76,7 @@
 (add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
+(require 'path_config)
 (require 'hist_related)
 (require 'myhelm_config)
 (require 'appearance)
