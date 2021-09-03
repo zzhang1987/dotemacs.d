@@ -3,7 +3,7 @@
   ;; (add-to-list 'company-backends 'company-jedi)
   ;; (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
   (define-key python-mode-map (kbd "<f5>") 'dap-debug)
-  (defind-key python-mode-map (kbd "<f10>") 'dap-next)
+  (define-key python-mode-map (kbd "<f10>") 'dap-next)
   (define-key python-mode-map (kbd "<f11>") 'dap-step-in)
   (add-hook 'python-mode-hook 'flycheck-mode)
   (add-hook 'python-mode-hook 'hs-minor-mode)
@@ -15,6 +15,13 @@
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" (concat (getenv "HOME") "/.conda/envs/"))
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1)
+  )
 
 (use-package sphinx-doc
   :ensure t
