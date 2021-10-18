@@ -69,31 +69,37 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'material t)
-                  (set-frame-font "Source Code Pro-13")
+                  (set-frame-font "Source Code Pro-14")
                   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-13")
+                      (set-frame-font "Source Code Pro-14")
                       )
                   )
                 )             
               )
-  (load-theme 'material t)
-  (set-frame-font "Source Code Pro-13")
+  (load-theme 'zenburn t)
+  (set-frame-font "Source Code Pro-14")
   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-13")
+                      (set-frame-font "Source Code Pro-14")
                       )
   
   )
 
 (add-to-list 'default-frame-alist
-             '(font . "Source Code Pro-13"))
+             '(font . "Source Code Pro-14"))
 
 (if (eq system-type 'darwin)
     (add-to-list 'default-frame-alist
-                 '(font . "Source Code Pro-13"))
+                 '(font . "Source Code Pro-14"))
   )
 
 (use-package all-the-icons
   :ensure t)
+
+
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
 
 (use-package neotree
   :ensure t
@@ -112,5 +118,5 @@
 ;;   (awesome-tab-build-helm-source))
 
 ;; set transparency
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
+(set-frame-parameter (selected-frame) 'alpha '(95 95))
+(add-to-list 'default-frame-alist '(alpha 95 95))
