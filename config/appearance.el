@@ -69,27 +69,29 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'material t)
-                  (set-frame-font "Source Code Pro-14")
+                  (set-frame-font "Source Code Pro-16")
                   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-14")
+                      (set-frame-font "Source Code Pro-16")
                       )
                   )
                 )             
               )
   (load-theme 'zenburn t)
-  (set-frame-font "Source Code Pro-14")
+  (set-frame-font "Source Code Pro-16")
   (if (eq system-type 'darwin)
-                      (set-frame-font "Source Code Pro-14")
+                      (set-frame-font "Source Code Pro-16")
                       )
   
   )
+(load-theme 'zenburn t)
 
 (add-to-list 'default-frame-alist
              '(font . "Source Code Pro-14"))
 
 (if (eq system-type 'darwin)
+    
     (add-to-list 'default-frame-alist
-                 '(font . "Source Code Pro-14"))
+                 '(font . "Source Code Pro-16"))
   )
 
 (use-package all-the-icons
