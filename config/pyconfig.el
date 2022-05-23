@@ -18,7 +18,7 @@
 (use-package pyvenv
   :ensure t
   :init
-  (setenv "WORKON_HOME" (concat (getenv "HOME") "/.conda/envs/"))
+  (setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniforge/base/envs")
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1)
   )
