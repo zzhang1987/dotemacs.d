@@ -1,23 +1,23 @@
 (provide 'markdown_config)
 
-(defun my/md-mode-hook ()
-  (define-key markdown-map "<f6>" 'math-preview-all)
-  (define-key markdown-map "<f7>" 'math-preview-clear-all)
-)
+
 
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode))
+  :bind (([f6] . 'math-preview-all)
+         ([f7] . 'math-preview-clear-all)
+         :map markdown-map-mode)
   :init (setq markdown-command "/usr/bin/pandoc --mathjax"))
 
-(add-hook 'markdown-mode-hook 'my/md-mode-hook)
 (use-package simple-httpd
   :ensure t
   :config
   (setq httpd-port 7070)
   :init (setq httpd-root "~/www"))
-
+(use-package impatient-mode
+  :ensure t)
 
 (defun markdown-filter (buffer)
   (princ

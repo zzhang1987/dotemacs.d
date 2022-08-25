@@ -117,12 +117,6 @@
   (setq reftex-plug-into-AUCTeX t)
 
 
-  (use-package auctex-latexmk
-    :ensure t
-    :config
-    (auctex-latexmk-setup)
-    (setq auctex-latexmk-inherit-TeX-PDF-mode t)
-    )
   (use-package gscholar-bibtex
     :ensure t)
   )
