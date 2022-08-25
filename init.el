@@ -95,6 +95,7 @@
 (require 'mykeybindings)
 (require 'others)
 (require 'tabbar_config)
+(require 'markdown_config)
 
 (use-package xclip
   :ensure t

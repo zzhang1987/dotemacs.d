@@ -30,7 +30,6 @@
     (global-flycheck-mode)))
 
 (defun my/c-mode-hook ()
-  (define-key c-mode-base-map "<f5>" 'realgud:gdb)
   (define-key c-mode-base-map "<f7>" 'compile)
 )
 (add-hook 'c-mode-hook 'my/c-mode-hook)

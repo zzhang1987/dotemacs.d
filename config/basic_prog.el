@@ -1,7 +1,5 @@
 (provide 'basic_prog)
 
-(use-package realgud
-  :ensure t)
 
 (use-package better-defaults
   :ensure t)
