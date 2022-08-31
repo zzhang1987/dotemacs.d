@@ -228,3 +228,6 @@
 
 (use-package nginx-mode
   :ensure t)
+
+
+(setq markdown-enable-math t) 

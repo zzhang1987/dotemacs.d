@@ -21,6 +21,7 @@
   (setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniforge/base/envs")
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1)
+  (pyvenv-workon "torch-nightly")
   )
 
 (use-package sphinx-doc
