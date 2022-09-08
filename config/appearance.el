@@ -91,7 +91,7 @@
 (if (eq system-type 'darwin)
     
     (add-to-list 'default-frame-alist
-                 '(font . "Source Code Pro-12"))
+                 '(font . "Source Code Pro-14"))
   )
 
 (use-package all-the-icons

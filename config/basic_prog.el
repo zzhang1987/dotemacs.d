@@ -114,45 +114,45 @@
 ;;     )
 ;;   )
 
-(use-package lsp-mode
-  :ensure t
-  :config
-  (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
-  (setq max-specpdl-size 32000) ;; HACK - fix bug in LSP
-  (setq lsp-prefer-capf t)
-
-  :custom
-  (lsp-enable-codeaction t)
-  (lsp-enable-completion-at-point t)
-  (lsp-enable-eldoc t)
-  (lsp-enable-flycheck t)
-  (lsp-enable-indentation nil)
-  (lsp-enable-indentation t)
-  (lsp-highlight-symbol-at-point t)
-  :hook
-  (python-mode . lsp)
-  (c++-mode . lsp)
-  (c-mode . lsp)
-  :commands lsp
-  )
-
-
-
-(use-package lsp-java
-  :ensure t
-  :after lsp
-  :config (add-hook 'java-mode-hook 'lsp))
-
-;; (use-package lsp-ui
+;; (use-package lsp-mode
 ;;   :ensure t
-;;   :requires lsp-mode flycheck
 ;;   :config
-;;   (setq lsp-ui-doc-max-height 20
-;; 	lsp-ui-doc-max-width 50
-;; 	lsp-ui-sideline-ignore-duplicate t
-;; 	lsp-ui-peek-always-show t)
-;;   (add-hook lsp-mode-hook 'lsp-ui-mode)
+;;   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
+;;   (setq max-specpdl-size 32000) ;; HACK - fix bug in LSP
+;;   (setq lsp-prefer-capf t)
+
+;;   :custom
+;;   (lsp-enable-codeaction t)
+;;   (lsp-enable-completion-at-point t)
+;;   (lsp-enable-eldoc t)
+;;   (lsp-enable-flycheck t)
+;;   (lsp-enable-indentation nil)
+;;   (lsp-enable-indentation t)
+;;   (lsp-highlight-symbol-at-point t)
+;;   :hook
+;;   (python-mode . lsp)
+;;   (c++-mode . lsp)
+;;   (c-mode . lsp)
+;;   :commands lsp
 ;;   )
+
+
+
+;; (use-package lsp-java
+;;   :ensure t
+;;   :after lsp
+;;   :config (add-hook 'java-mode-hook 'lsp))
+
+;; ;; (use-package lsp-ui
+;; ;;   :ensure t
+;; ;;   :requires lsp-mode flycheck
+;; ;;   :config
+;; ;;   (setq lsp-ui-doc-max-height 20
+;; ;; 	lsp-ui-doc-max-width 50
+;; ;; 	lsp-ui-sideline-ignore-duplicate t
+;; ;; 	lsp-ui-peek-always-show t)
+;; ;;   (add-hook lsp-mode-hook 'lsp-ui-mode)
+;; ;;   )
 
   
 (use-package company
@@ -195,6 +195,16 @@
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   )
 
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;      LSP-bridge
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lsp-bridge/"))
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(require 'lsp-bridge)
+(global-lsp-bridge-mode)
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Fixme-mode
