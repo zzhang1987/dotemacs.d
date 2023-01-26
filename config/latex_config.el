@@ -55,7 +55,6 @@
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   ;;(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
   (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
@@ -119,6 +118,11 @@
 
   (use-package gscholar-bibtex
     :ensure t)
+  (use-package auctex-latexmk
+    :ensure t)
+  
   )
+
+
 
 

@@ -1,7 +1,7 @@
 (provide 'myhelm_config)
 
-(use-package helm-config
-  :ensure helm
+(use-package helm
+  :straight t
   :config
   (use-package swiper-helm
     :ensure t

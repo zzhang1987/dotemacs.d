@@ -19,7 +19,7 @@
 (use-package impatient-mode
   :ensure t)
 
-(defun markdown-filter (buffer)
+(defun my-markdown-filter (buffer)
   (princ
    (with-temp-buffer
      (let ((tmp (buffer-name)))

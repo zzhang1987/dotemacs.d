@@ -2,26 +2,40 @@
 (setq gc-cons-threshold 100000000)
 (setq max-lisp-eval-depth 5000)
 
-;; load emacs 24's package system. Add MELPA repository.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (setq package-enable-at-startup nil)
+;; ;; load emacs 24's package system. Add MELPA repository.
+;; (when (>= emacs-major-version 24)
+;;   (require 'package)
+;;   (setq package-enable-at-startup nil)
 
   
-  (unless (assoc-default "melpa" package-archives)
-    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
-  (unless (assoc-default "org" package-archives)
-    (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
-  (unless (assoc-default "marmalade" package-archives)
-    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-  (package-initialize)
-  (when (not package-archive-contents)
-    (package-refresh-contents))
-  (unless (package-installed-p 'use-package)
-    (package-install 'use-package))
-  )
+;;   (unless (assoc-default "melpa" package-archives)
+;;     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+;;   (unless (assoc-default "org" package-archives)
+;;     (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
+;;   (unless (assoc-default "marmalade" package-archives)
+;;     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+;;   (package-initialize)
+;;   (when (not package-archive-contents)
+;;     (package-refresh-contents))
+;;   (unless (package-installed-p 'use-package)
+;;     (package-install 'use-package))
+;;   )
+(setq package-enable-at-startup nil)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(require 'use-package)
+
+;; (require 'use-package)
 (use-package req-package
   :ensure t)
 

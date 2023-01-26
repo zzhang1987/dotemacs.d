@@ -12,6 +12,10 @@
 
 (if (eq system-type 'gnu/linux)
     (progn
+      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/miniconda3/bin")))
+      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/mambaforge/bin")))
+      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/.local/bin")))
+      
       (add-to-list 'exec-path (concat (getenv "HOME") "/miniconda3/bin"))
       (add-to-list 'exec-path (concat (getenv "HOME") "/mambaforge/bin"))
       (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
