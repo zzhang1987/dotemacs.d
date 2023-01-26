@@ -198,6 +198,16 @@
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;;      LSP-bridge
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lsp-bridge/"))
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(require 'lsp-bridge)
+(global-lsp-bridge-mode)
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Fixme-mode
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/pkg/vendors"))
