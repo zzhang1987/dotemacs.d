@@ -1,11 +1,11 @@
 (provide 'java_config)
 (require 'cc-mode)
-(use-package treemacs :ensure t)
+(use-package treemacs :straight t)
 
 
 
 (use-package dap-mode
-  :ensure t :after lsp-mode
+  :straight t :after lsp-mode
   :config
   (dap-mode t)
   (dap-ui-mode t))
@@ -14,5 +14,5 @@
 
 
 (use-package gradle-mode
-  :ensure t
+  :straight t
   :config (add-hook 'java-mode-hook '(lambda() (gradle-mode 1))))

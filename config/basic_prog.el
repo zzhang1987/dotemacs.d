@@ -2,35 +2,36 @@
 
 
 (use-package better-defaults
-  :ensure t)
+  :straight t)
 (use-package better-shell
-  :ensure t
+  :straight t
   :bind (("C-'" . better-shell-shell)
          ("C-;" . better-shell-remote-open)))
 (use-package cmake-mode
-  :ensure t)
+  :straight t)
 (use-package find-file-in-project
-  :ensure t)
+  :straight t)
 (use-package auto-compile
-  :ensure t
+  :straight t
   :init
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode)
   )
 ;; Installing company mode
 (use-package company
-  :ensure t
+  :straight t
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 ;; Disable the delay
 (setq company-idle-delay 0)
-
+(use-package posframe
+  :straight t)
 (use-package helm-company
-  :ensure t)
+  :straight t)
 (use-package projectile
-  :ensure t)
+  :straight t)
 (use-package haskell-mode
-  :ensure t)
+  :straight t)
 (eval-after-load 'company
   '(progn
      (define-key company-active-map (kbd "S-TAB") 'helm-company)
@@ -42,7 +43,7 @@
 
 
 (use-package project-explorer
-  :ensure t)
+  :straight t)
 ;; (server-start)
 (add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
 
@@ -51,19 +52,19 @@
 
 
 (use-package magit
-  :ensure t
+  :straight t
   :config
   (global-set-key (kbd "C-c C-x c") 'magit-commit-create)
   (global-set-key (kbd "C-c C-x p") 'magit-push)
   (global-set-key (kbd "C-c C-x l") 'magit-pull))
 (use-package git-gutter+
-  :ensure t
+  :straight t
   :config
   (progn
     (global-git-gutter+-mode)))
 
 (use-package yasnippet
-  :ensure t
+  :straight t
   :config 
   (yas-load-directory "~/.snippets")
   (yas-global-mode 1)
@@ -71,7 +72,7 @@
 
 
 (use-package ob-ipython
-  :ensure t)
+  :straight t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -82,7 +83,7 @@
 ;; (when (eq system-type 'windows-nt)
 
 ;;   (use-package pyvenv
-;;     :ensure t
+;;     :straight t
 ;;     :init
 ;;     (setenv "WORKON_HOME" "c:/Miniconda3/envs/")
     
@@ -94,7 +95,7 @@
 
 ;; (when (eq system-type 'gnu/linux)
 ;;   (use-package pyvenv
-;;     :ensure t
+;;     :straight t
 ;;     :init
 ;;     (setenv "WORKON_HOME" "~/.conda/envs/") 
 ;;     (pyvenv-mode 1)
@@ -105,7 +106,7 @@
 
 ;; (when (eq system-type 'darwin)
 ;;   (use-package pyvenv
-;;     :ensure t
+;;     :straight t
 ;;     :init
 ;;     (setenv "WORKON_HOME" "~/miniconda3/envs/")
     
@@ -116,7 +117,7 @@
 ;;   )
 
 ;; (use-package lsp-mode
-;;   :ensure t
+;;   :straight t
 ;;   :config
 ;;   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 ;;   (setq max-specpdl-size 32000) ;; HACK - fix bug in LSP
@@ -140,12 +141,12 @@
 
 
 ;; (use-package lsp-java
-;;   :ensure t
+;;   :straight t
 ;;   :after lsp
 ;;   :config (add-hook 'java-mode-hook 'lsp))
 
 ;; (use-package lsp-ui
-;;   :ensure t
+;;   :straight t
 ;;   :requires lsp-mode flycheck
 ;;   :config
 ;;   (setq lsp-ui-doc-max-height 20
@@ -157,7 +158,7 @@
 
   
 (use-package company
-  :ensure t
+  :straight t
   :hook (prog-mode . company-mode)
   :bind (:map company-mode-map
          ([remap completion-at-point] . company-complete))
@@ -180,17 +181,17 @@
   )
 
 ;; (use-package company-lsp
-;;   :ensure t
+;;   :straight t
 ;;   :commands (company-lsp)
 ;;   )
 
 ;; (use-package company-box
-;;   :ensure t
+;;   :straight t
 ;;   :hook (company-mode . company-box-mode))
 
 
 (use-package neotree
-  :ensure t
+  :straight t
   :config
   (global-set-key [f8] 'neotree-toggle)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
@@ -232,13 +233,13 @@
 
 
 (use-package fill-column-indicator
-  :ensure t
+  :straight t
   :config
   (add-hook 'python-mode-hook 'fci-mode)
   )
 
 (use-package nginx-mode
-  :ensure t)
+  :straight t)
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/lsp-bridge/")
 

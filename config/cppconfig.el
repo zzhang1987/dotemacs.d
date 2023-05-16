@@ -2,7 +2,7 @@
 
 
 (use-package modern-cpp-font-lock
-  :ensure t
+  :straight t
   :config
   (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
   )
@@ -12,7 +12,7 @@
 
 
 (use-package rainbow-delimiters
-  :ensure t
+  :straight t
   :init
   (add-hook 'c-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'c++-mode-hook 'rainbow-delimiters-mode)
@@ -24,7 +24,7 @@
 (add-hook 'c-mode-hook 'yas-minor-mode)
 
 (req-package flycheck
-  :ensure t
+  :straight t
   :config
   (progn
     (global-flycheck-mode)))
@@ -40,7 +40,7 @@
 
 
 (use-package cmake-project
-  :ensure t
+  :straight t
   :config
   (defun maybe-cmake-project-hook ()
     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))

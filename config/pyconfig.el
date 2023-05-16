@@ -10,37 +10,37 @@
   )
 
 (use-package python-docstring
-  :ensure t
+  :straight t
   :config
   (add-hook 'python-mode-hook 'python-docstring-mode)
   )
 
-(use-package pyvenv
-  :ensure t
-  :init
-  (setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniforge/base/envs")
-  (pyvenv-mode 1)
-  (pyvenv-tracking-mode 1)
-  (pyvenv-workon "torch-nightly")
-  )
+;; (use-package pyvenv
+;;   :straight t
+;;   :init
+;;   (setenv "WORKON_HOME" "/opt/homebrew/Caskroom/miniforge/base/envs")
+;;   (pyvenv-mode 1)
+;;   (pyvenv-tracking-mode 1)
+;;   (pyvenv-workon "torch-nightly")
+;;   )
 
 (use-package sphinx-doc
-  :ensure t
+  :straight t
   :config
   (add-hook 'python-mode-hook 'sphinx-doc-mode))
 
 ;; (use-package elpy
-;;   :ensure t
+;;   :straight t
 ;;   :init
 ;;   (elpy-enable))
 
 (use-package yapfify
-  :ensure t
+  :straight t
   :config (add-hook 'python-mode-hook 'yapf-mode)
 )
 
 ;; (use-package py-yapf
-;;   :ensure t
+;;   :straight t
 ;;   :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
 
 

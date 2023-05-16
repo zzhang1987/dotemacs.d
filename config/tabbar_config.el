@@ -1,8 +1,10 @@
+
+
 ;; Tabbar
 (provide 'tabbar_config)
 
 (use-package tabbar
-  :ensure t
+  :straight t
   :config 
   ;; Tabbar settings
   (set-face-attribute

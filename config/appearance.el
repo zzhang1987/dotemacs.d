@@ -1,24 +1,24 @@
 (provide 'appearance)
 
 (use-package powerline
-  :ensure t
+  :straight t
   :config (powerline-default-theme))
 
 (use-package nyan-mode
-  :ensure t
+  :straight t
   :config
   (nyan-mode))
 
 (if (eq system-type 'gnu/linux)
     (use-package rainbow-identifiers
-      :ensure t
+      :straight t
       :config (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
     )
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Show line number of current coding window
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 (use-package linum
-  :ensure t
+  :straight t
   :config
   (setq linum-format 'dynamic)
   (global-linum-mode 1)
@@ -30,7 +30,7 @@
 ;; Dash board
 ;; Or if you use use-package
 (use-package dashboard
-  :ensure t
+  :straight t
   :config
   (dashboard-setup-startup-hook))
 
@@ -44,24 +44,24 @@
 			))
 
 ;; (use-package tabbar
-;;   :ensure tabbar
+;;   :straight tabbar
 ;;   :config
 ;;   (tabbar-mode 'nil)
 ;;   )
 
 
 (use-package all-the-icons
-  :ensure t
+  :straight t
   )
 
 
 (setq mode-icons-change-mode-name nil)
 
 ;; (use-package afternoon-theme
-;;   :ensure t)
+;;   :straight t)
 
 (use-package material-theme
-  :ensure t)
+  :straight t)
 
 
 (if (daemonp)
@@ -69,17 +69,17 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'material t)
-                  (set-frame-font "MesloLGLDZ Nerd Font-12")
+                  (set-frame-font "MesloLGLDZ Nerd Font-16")
                   (if (eq system-type 'darwin)
-                      (set-frame-font "MesloLGLDZ Nerd Font-12")
+                      (set-frame-font "MesloLGLDZ Nerd Font-16")
                       )
                   )
                 )             
               )
   (use-package zenburn-theme
-    :ensure t)
+    :straight t)
   (load-theme 'zenburn t)
-  (set-frame-font "MesloLGLDZ Nerd Font-12")
+  (set-frame-font "MesloLGLDZ Nerd Font-16")
   (if (eq system-type 'darwin)
                       (set-frame-font "MesloLGLDZ Nerd Font-12")
                       )
@@ -88,7 +88,7 @@
 (load-theme 'zenburn t)
 
 (add-to-list 'default-frame-alist
-             '(font . "MesloLGLDZ Nerd Font-12"))
+             '(font . "MesloLGLDZ Nerd Font-16"))
 
 (if (eq system-type 'darwin)
     
@@ -97,16 +97,16 @@
   )
 
 (use-package all-the-icons
-  :ensure t)
+  :straight t)
 
 
 (use-package zenburn-theme
-  :ensure t
+  :straight t
   :config
   (load-theme 'zenburn t))
 
 (use-package neotree
-  :ensure t
+  :straight t
   :config (progn
     (setq neo-smart-open t)
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))

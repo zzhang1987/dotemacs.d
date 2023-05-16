@@ -1,9 +1,9 @@
 (provide 'org_config)
 (use-package auto-org-md
-  :ensure t)
+  :straight t)
 (require 'org)
 (use-package calendar
-  :ensure t)
+  :straight t)
 
 (require 'org-protocol)
 (with-eval-after-load 'org
@@ -18,7 +18,10 @@
         )
       )
 ;; (use-package org-wild-notifier
-;;   :ensure t
+;;   :straight
+
+
+t
 ;;   :config
 ;;   (org-wild-notifier-mode))
 

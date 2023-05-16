@@ -3,7 +3,7 @@
 
 
 (use-package markdown-mode
-  :ensure t
+  :straight t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode))
   :bind (([f6] . 'math-preview-all)
@@ -12,12 +12,12 @@
   :init (setq markdown-command "/usr/bin/pandoc --mathjax"))
 
 (use-package simple-httpd
-  :ensure t
+  :straight t
   :config
   (setq httpd-port 7070)
   :init (setq httpd-root "~/www"))
 (use-package impatient-mode
-  :ensure t)
+  :straight t)
 
 (defun my-markdown-filter (buffer)
   (princ

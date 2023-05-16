@@ -1,7 +1,7 @@
 (provide 'dap_config)
 
 (use-package dap-mode
-  :ensure t
+  :straight t
   :config
   (dap-mode 1)
 

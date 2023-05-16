@@ -4,12 +4,12 @@
   :straight t
   :config
   (use-package swiper-helm
-    :ensure t
+    :straight t
     :config
     )
 
   (use-package helm-bibtex
-    :ensure t
+    :straight t
     :after helm
     :config
     (setq bibtex-completion-bibliography
@@ -21,7 +21,7 @@
   
 
   (use-package helm-projectile
-    :ensure t
+    :straight t
     :config
     (helm-projectile-on)
     )

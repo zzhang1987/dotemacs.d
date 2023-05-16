@@ -9,7 +9,7 @@
 
 ;;Markdown mode
 (use-package markdown-mode
-  :ensure t
+  :straight t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -17,9 +17,9 @@
   :init (setq markdown-command "multimarkdown"))
 
 (use-package vimish-fold
-  :ensure t
+  :straight t
   :config
   (vimish-fold-global-mode 1))
 
 (use-package nginx-mode
-  :ensure t)
+  :straight t)

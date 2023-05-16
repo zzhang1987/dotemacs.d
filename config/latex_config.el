@@ -26,7 +26,7 @@
 
 
 (use-package latex
-  :ensure auctex
+  :straight auctex
   :mode
   ("\\.tex\\'" . latex-mode)
   :bind
@@ -50,7 +50,7 @@
       t))
   :config
   (use-package magic-latex-buffer
-    :ensure t)
+    :straight t)
 
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -77,7 +77,7 @@
       (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
     )
   (use-package pdf-tools
-    :ensure t
+    :straight t
     :config
     (pdf-tools-install)
     ;; Use pdf-tools to open PDF files
@@ -117,9 +117,9 @@
 
 
   (use-package gscholar-bibtex
-    :ensure t)
+    :straight t)
   (use-package auctex-latexmk
-    :ensure t)
+    :straight t)
   
   )
 

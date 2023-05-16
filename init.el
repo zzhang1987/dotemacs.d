@@ -34,10 +34,11 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(straight-use-package 'use-package)
 
 ;; (require 'use-package)
 (use-package req-package
-  :ensure t)
+  :straight t)
 
 
 ;; shell related
@@ -53,7 +54,7 @@
 
 ;; Auto update packages
 (use-package auto-package-update
-  :ensure t)
+  :straight t)
 (auto-package-update-maybe)
 
 
@@ -63,7 +64,7 @@
 (setq load-prefer-newer t)
 
 (use-package auto-compile
-  :ensure t
+  :straight t
   :config
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode)
