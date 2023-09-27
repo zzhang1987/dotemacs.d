@@ -90,7 +90,7 @@
 (add-to-list 'load-path "~/.emacs.d/config")
 (add-to-list 'load-path (concat (getenv "XDG_CONFIG_HOME") "/emacs/config"))
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/")
-
+(require 'markdown_config)
 (require 'path_config)
 (require 'hist_related)
 (require 'myhelm_config)
@@ -110,10 +110,9 @@
 (require 'mykeybindings)
 (require 'others)
 (require 'tabbar_config)
-(require 'markdown_config)
 
 (use-package xclip
-  :ensure t
+  :straight t
   :config
   (xclip-mode 1))
 

@@ -40,7 +40,8 @@
      (define-key company-active-map (kbd "TAB") 'helm-company)
      (define-key company-active-map (kbd "<tab>") 'helm-company)))
 
-
+(use-package flycheck
+  :straight t)
 
 (use-package project-explorer
   :straight t)
@@ -201,12 +202,6 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      LSP-bridge
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lsp-bridge/"))
-(require 'yasnippet)
-(yas-global-mode 1)
-
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Fixme-mode
@@ -241,8 +236,4 @@
 (use-package nginx-mode
   :straight t)
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/lsp-bridge/")
-
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
 

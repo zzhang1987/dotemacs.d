@@ -49,15 +49,15 @@
         (delete-region (car bounds) (1+ brace)))
       t))
   :config
-  (use-package magic-latex-buffer
-    :straight t)
+  ;; (use-package magic-latex-buffer
+  ;;   :straight t)
 
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   ;;(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-  (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
+  ;; (add-hook 'LaTex-mode-hook 'magic-latex-buffer)
   
   (defun TeX-toggle-escape nil (interactive)
          "Toggle Shell Escape"
@@ -68,14 +68,11 @@
 	      (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
   (if (string-equal "darwin" (symbol-name system-type))
-      
       (setq TeX-view-program-list
             '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
     
     )
-  (if (string-equal "darwin" (symbol-name system-type))
-      (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-    )
+
   (use-package pdf-tools
     :straight t
     :config
@@ -117,8 +114,6 @@
 
 
   (use-package gscholar-bibtex
-    :straight t)
-  (use-package auctex-latexmk
     :straight t)
   
   )
