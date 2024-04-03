@@ -69,9 +69,9 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (load-theme 'material t)
-                  (set-frame-font "MesloLGLDZ Nerd Font-16")
+                  (set-frame-font "MesloLGLDZ Nerd Font-14")
                   (if (eq system-type 'darwin)
-                      (set-frame-font "MesloLGLDZ Nerd Font-16")
+                      (set-frame-font "MesloLGLDZ Nerd Font-14")
                       )
                   )
                 )             
@@ -79,7 +79,7 @@
   (use-package zenburn-theme
     :straight t)
   (load-theme 'zenburn t)
-  (set-frame-font "MesloLGLDZ Nerd Font-16")
+  (set-frame-font "MesloLGLDZ Nerd Font-14")
   (if (eq system-type 'darwin)
                       (set-frame-font "MesloLGLDZ Nerd Font-12")
                       )
@@ -88,7 +88,7 @@
 (load-theme 'zenburn t)
 
 (add-to-list 'default-frame-alist
-             '(font . "MesloLGLDZ Nerd Font-16"))
+             '(font . "MesloLGLDZ Nerd Font-14"))
 
 (if (eq system-type 'darwin)
     

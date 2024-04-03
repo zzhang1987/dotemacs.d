@@ -3,6 +3,9 @@
 
 (use-package better-defaults
   :straight t)
+
+
+
 (use-package better-shell
   :straight t
   :bind (("C-'" . better-shell-shell)
@@ -24,8 +27,7 @@
   (add-hook 'after-init-hook 'global-company-mode))
 ;; Disable the delay
 (setq company-idle-delay 0)
-(use-package posframe
-  :straight t)
+
 (use-package helm-company
   :straight t)
 (use-package projectile
