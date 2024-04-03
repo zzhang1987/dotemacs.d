@@ -64,12 +64,20 @@
   (progn
     (global-git-gutter+-mode)))
 
-(use-package yasnippet
-  :straight t
-  :config 
-  (yas-load-directory "~/.snippets")
-  (yas-global-mode 1)
-  )
+(add-to-list 'load-path "~/.emacs.d/site-lisp/lsp-bridge/")
+
+(require 'yasnippet)
+(yas-global-mode 1)
+(require 'lsp-bridge)
+(global-lsp-bridge-mode)
+
+
+;; (use-package yasnippet
+;;   :straight t
+;;   :config 
+;;   (yas-load-directory "~/.snippets")
+;;   (yas-global-mode 1)
+;;   )
 
 
 (use-package ob-ipython
