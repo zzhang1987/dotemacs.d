@@ -39,6 +39,8 @@
   :config (add-hook 'python-mode-hook 'yapf-mode)
 )
 
+(use-package pyvenv
+  :straight t)
 ;; (use-package py-yapf
 ;;   :straight t
 ;;   :config (add-hook 'python-mode-hook 'py-yapf-enable-on-save))
