@@ -54,4 +54,7 @@
                               (python-docstring-mode 1)))
 
 
+(use-package ein
+  :straight t)
+
 ;; (use-package dap-python :after (lsp-python))

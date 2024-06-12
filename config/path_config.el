@@ -14,12 +14,12 @@
 
 
     (progn
-      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/miniconda3/bin")))
-      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/mambaforge/bin")))
-      (setenv "PATH" (concat (getenv "PATH") ":" (concat (getenv "HOME") "/.local/bin")))
+      (setenv "PATH" (concat (concat (getenv "HOME") "/miniconda3/bin")  ":" (getenv "PATH")))
+      (setenv "PATH" (concat (concat (getenv "HOME") "/miniforge3/bin")  ":" (getenv "PATH")))
+      (setenv "PATH" (concat (concat (getenv "HOME") "/.local/bin")  ":" (getenv "PATH")))
       
       (add-to-list 'exec-path (concat (getenv "HOME") "/miniconda3/bin"))
-      (add-to-list 'exec-path (concat (getenv "HOME") "/mambaforge/bin"))
+      (add-to-list 'exec-path (concat (getenv "HOME") "/miniforge3/bin"))
       (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
       )
     )
