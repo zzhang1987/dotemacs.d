@@ -17,12 +17,7 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Show line number of current coding window
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-(use-package linum
-  :straight t
-  :config
-  (setq linum-format 'dynamic)
-  (global-linum-mode 1)
-  )
+(global-display-line-numbers-mode 1)
 
 
 

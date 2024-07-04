@@ -111,10 +111,10 @@
 (require 'others)
 (require 'tabbar_config)
 
-(use-package xclip
-  :straight t
-  :config
-  (xclip-mode 1))
+;; (use-package xclip
+;;   :straight t
+;;   :config
+;;   (xclip-mode 1))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
