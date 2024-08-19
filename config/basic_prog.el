@@ -67,6 +67,10 @@
     (global-git-gutter+-mode)))
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/lsp-bridge/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-livedown")
+(require 'livedown)
+(global-set-key (kbd "C-M-m") 'livedown-preview)
+
 (use-package yasnippet
   :straight t
   :config

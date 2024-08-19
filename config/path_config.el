@@ -12,7 +12,6 @@
 
 (if (eq system-type 'gnu/linux)
 
-
     (progn
       (setenv "PATH" (concat (concat (getenv "HOME") "/miniconda3/bin")  ":" (getenv "PATH")))
       (setenv "PATH" (concat (concat (getenv "HOME") "/miniforge3/bin")  ":" (getenv "PATH")))
