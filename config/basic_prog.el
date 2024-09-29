@@ -250,3 +250,11 @@
   :straight t)
 
 
+(setq openai-key (getenv "OPENAI_API"))
+(setq chatgpt-mode "gpt-4o")
+(use-package openai
+  :straight (openai :type git :host github :repo "emacs-openai/openai"))
+
+
+(use-package chatgpt
+  :straight (chatgpt :type git :host github :repo "emacs-openai/chatgpt"))

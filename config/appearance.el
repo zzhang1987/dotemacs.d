@@ -57,6 +57,10 @@
 
 (use-package material-theme
   :straight t)
+(use-package zenburn-theme
+  :straight t
+  :config
+  (load-theme 'zenburn t))
 
 
 (if (daemonp)
@@ -71,8 +75,7 @@
                   )
                 )             
               )
-  (use-package zenburn-theme
-    :straight t)
+
   (load-theme 'zenburn t)
   (set-frame-font "MesloLGLDZ Nerd Font-14")
   (if (eq system-type 'darwin)
@@ -95,10 +98,6 @@
   :straight t)
 
 
-(use-package zenburn-theme
-  :straight t
-  :config
-  (load-theme 'zenburn t))
 
 (use-package neotree
   :straight t
