@@ -28,19 +28,19 @@
 ;; Disable the delay
 (setq company-idle-delay 0)
 
-(use-package helm-company
-  :straight t)
+;; (use-package helm-company
+;;   :straight t)
 (use-package projectile
   :straight t)
 (use-package haskell-mode
   :straight t)
-(eval-after-load 'company
-  '(progn
-     (define-key company-active-map (kbd "S-TAB") 'helm-company)
-     (define-key company-active-map (kbd "<backtab>") 'helm-company)
-     (define-key company-mode-map (kbd "C-:") 'helm-company)
-     (define-key company-active-map (kbd "TAB") 'helm-company)
-     (define-key company-active-map (kbd "<tab>") 'helm-company)))
+;; (eval-after-load 'company
+;;   '(progn
+;;      (define-key company-active-map (kbd "S-TAB") 'helm-company)
+;;      (define-key company-active-map (kbd "<backtab>") 'helm-company)
+;;      (define-key company-mode-map (kbd "C-:") 'helm-company)
+;;      (define-key company-active-map (kbd "TAB") 'helm-company)
+;;      (define-key company-active-map (kbd "<tab>") 'helm-company)))
 
 (use-package flycheck
   :straight t)
@@ -48,7 +48,7 @@
 (use-package project-explorer
   :straight t)
 ;; (server-start)
-(add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
+;; (add-to-list 'auto-mode-alist '("/mutt" . mail-mode)) ;;邮件设置
 
 (electric-pair-mode t) ;;
 
@@ -174,28 +174,28 @@
 ;;   )
 
   
-(use-package company
-  :straight t
-  :hook (prog-mode . company-mode)
-  :bind (:map company-mode-map
-         ([remap completion-at-point] . company-complete))
-  :config
-  (setq company-minimum-prefix-length 1
-	company-idle-delay 0
-	company-tooltip-limit 10
-	company-transformers nil
-	company-show-numbers t
-	)
-  (global-company-mode +1)
-  :custom
-  (company-idle-delay 0)
-  (company-echo-delay 0)
-  (company-show-numbers t)
-  (company-require-match nil)
-  (company-tooltip-align-annotations t)
-  (company-backends '(company-capf))
+;; (use-package company
+;;   :straight t
+;;   :hook (prog-mode . company-mode)
+;;   :bind (:map company-mode-map
+;;          ([remap completion-at-point] . company-complete))
+;;   :config
+;;   (setq company-minimum-prefix-length 1
+;; 	company-idle-delay 0
+;; 	company-tooltip-limit 10
+;; 	company-transformers nil
+;; 	company-show-numbers t
+;; 	)
+;;   (global-company-mode +1)
+;;   :custom
+;;   (company-idle-delay 0)
+;;   (company-echo-delay 0)
+;;   (company-show-numbers t)
+;;   (company-require-match nil)
+;;   (company-tooltip-align-annotations t)
+;;   (company-backends '(company-capf))
   
-  )
+;;   )
 
 ;; (use-package company-lsp
 ;;   :straight t
