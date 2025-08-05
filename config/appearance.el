@@ -17,6 +17,12 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;;      Show line number of current coding window
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(require 'display-line-numbers)
+(defun display-line-numbers--turn-on ()
+  "Turn on `display-line-numbers-mode'."
+  (unless (or (minibufferp) (eq major-mode 'pdf-view-mode))
+    (display-line-numbers-mode)))
 (global-display-line-numbers-mode 1)
 
 

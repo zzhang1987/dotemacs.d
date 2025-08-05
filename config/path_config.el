@@ -16,9 +16,12 @@
       (setenv "PATH" (concat (concat (getenv "HOME") "/miniconda3/bin")  ":" (getenv "PATH")))
       (setenv "PATH" (concat (concat (getenv "HOME") "/miniforge3/bin")  ":" (getenv "PATH")))
       (setenv "PATH" (concat (concat (getenv "HOME") "/.local/bin")  ":" (getenv "PATH")))
+
+      (setenv "PATH" (concat "/opt/conda/bin/"  ":" (getenv "PATH")))
       
       (add-to-list 'exec-path (concat (getenv "HOME") "/miniconda3/bin"))
       (add-to-list 'exec-path (concat (getenv "HOME") "/miniforge3/bin"))
       (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
+      (add-to-list 'exec-path "/opt/conda/bin/")
       )
     )
